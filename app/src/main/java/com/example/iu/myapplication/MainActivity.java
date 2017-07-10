@@ -11,7 +11,6 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 
 
-//啦啦啦
 public class MainActivity extends AppCompatActivity {
 
     @Override
