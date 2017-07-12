@@ -2,6 +2,7 @@ package com.example.iu.myapplication;
 
 import android.app.Application;
 
+import com.example.iu.myapplication.base.BaseActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -17,6 +18,8 @@ public class App extends Application {
         PlatformConfig.setQQZone("1106204691", "KEguRaDKDSPfp7tH");
         PlatformConfig.setSinaWeibo("1770387667", "96551cfcd196b8bfa51d316b49a1bc42", "http://sns.whalecloud.com");
     }
+
+    public static BaseActivity context = null;
 
     @Override
     public void onCreate() {

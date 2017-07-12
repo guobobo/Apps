@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="home">首页</string>
+    <string name="pandalive">熊猫直播</string>
+    <string name="pandavideo">熊猫文化</string>
+    <string name="pandabroadcast">熊猫播报</string>
+    <string name="livecn">直播中国</string>
 </resources>
