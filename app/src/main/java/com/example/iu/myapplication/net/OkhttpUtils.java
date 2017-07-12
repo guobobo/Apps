@@ -21,7 +21,7 @@ import okhttp3.Response;
  * Created by dell on 2017/7/12.
  */
 
-public class OkHttpUtils implements IHttp{
+class OkHttpUtils implements IHttp{
 
     private OkHttpClient client ;
     private static OkHttpUtils utils;
