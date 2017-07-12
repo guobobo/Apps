@@ -12,7 +12,7 @@ import com.umeng.socialize.media.UMImage;
 
 
 public class MainActivity extends AppCompatActivity {
-
+//sss
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
