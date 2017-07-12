@@ -8,7 +8,7 @@ import com.example.iu.myapplication.App;
 
 import butterknife.ButterKnife;
 
-//activity基类//
+//activity基类
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
