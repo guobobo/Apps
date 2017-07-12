@@ -20,7 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
     }
 
-    //初始化布局
+    //初始化布局..
     public abstract int getLayoutId();
 
     //初始化数据
