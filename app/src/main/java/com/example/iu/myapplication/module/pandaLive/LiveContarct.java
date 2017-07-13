@@ -1,4 +1,4 @@
-package com.example.iu.myapplication.module.pandaLive;
+package com.example.iu.myapplication.module.pandalive;
 
 import com.example.iu.myapplication.base.BasePresenter;
 import com.example.iu.myapplication.base.BaseView;

@@ -1,4 +1,4 @@
-package com.example.iu.myapplication.module.chinaLive;
+package com.example.iu.myapplication.module.chinalive;
 
 import com.example.iu.myapplication.base.BasePresenter;
 import com.example.iu.myapplication.base.BaseView;

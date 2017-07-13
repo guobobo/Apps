@@ -2,6 +2,7 @@ package com.example.iu.myapplication.module.home;
 
 import android.view.View;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.model.entity.HomeBean;
 
@@ -13,7 +14,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View{
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_home;
     }
 
     @Override

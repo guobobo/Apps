@@ -1,7 +1,8 @@
-package com.example.iu.myapplication.module.pandaLive;
+package com.example.iu.myapplication.module.pandalive;
 
 import android.view.View;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.model.entity.LiveBean;
 
@@ -12,7 +13,7 @@ import com.example.iu.myapplication.model.entity.LiveBean;
 public class LiveFragment extends BaseFragment implements LiveContarct.View {
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_pandalive;
     }
 
     @Override

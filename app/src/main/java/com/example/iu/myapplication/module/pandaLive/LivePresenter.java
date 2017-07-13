@@ -1,4 +1,4 @@
-package com.example.iu.myapplication.module.pandaLive;
+package com.example.iu.myapplication.module.pandalive;
 
 import com.example.iu.myapplication.model.biz.live.LiveModel;
 import com.example.iu.myapplication.model.biz.live.LiveModelImpl;

@@ -2,6 +2,7 @@ package com.example.iu.myapplication.module.pandabroadcast;
 
 import android.view.View;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.model.entity.BroadCastBean;
 
@@ -13,7 +14,7 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_pandabroadcast;
     }
 
     @Override

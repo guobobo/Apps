@@ -1,19 +1,30 @@
 package com.example.iu.myapplication.module.pandaculture;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
+import com.androidkun.PullToRefreshRecyclerView;
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
-import com.example.iu.myapplication.model.entity.ChinaBean;
-import com.example.iu.myapplication.module.chinaLive.ChinaContarct;
+import com.example.iu.myapplication.model.entity.CultureBean;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by dell on 2017/7/12.
  */
 
-public class CultureFragment extends BaseFragment implements ChinaContarct.View{
+public class CultureFragment extends BaseFragment implements CultureContarct.View {
+    @Bind(R.id.culturefragemnt_precy)
+    PullToRefreshRecyclerView culturefragemntPrecy;
+
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.culturefragment;
     }
 
     @Override
@@ -37,17 +48,37 @@ public class CultureFragment extends BaseFragment implements ChinaContarct.View{
     }
 
     @Override
-    public void setResult(ChinaBean chinaBean) {
+    public void setResult(CultureBean cultureBean) {
 
     }
+
 
     @Override
     public void setMessage(String msg) {
 
     }
 
+
     @Override
-    public void setPresenter(ChinaContarct.Presenter presenter) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    @OnClick(R.id.culturefragemnt_precy)
+    public void onViewClicked() {
+    }
+
+    @Override
+    public void setPresenter(CultureContarct.Presenter presenter) {
 
     }
 }
