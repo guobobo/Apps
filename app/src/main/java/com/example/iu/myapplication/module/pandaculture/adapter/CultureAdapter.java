@@ -5,4 +5,5 @@ package com.example.iu.myapplication.module.pandaculture.adapter;
  */
 
 public class CultureAdapter  {
+    //
 }
