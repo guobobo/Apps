@@ -86,7 +86,7 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
         });
 
     }
-
+    
     @Override
     public void setMessage(String msg) {
 
