@@ -13,11 +13,15 @@ import android.widget.TextView;
 
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.module.chinalive.ChinaFragment;
+import com.example.iu.myapplication.module.chinalive.ChinaPresenter;
 import com.example.iu.myapplication.module.home.HomeFragment;
 import com.example.iu.myapplication.module.home.HomePresenter;
 import com.example.iu.myapplication.module.pandabroadcast.BroadcastFragment;
+import com.example.iu.myapplication.module.pandabroadcast.BroadcastPresenter;
 import com.example.iu.myapplication.module.pandaculture.CultureFragment;
+import com.example.iu.myapplication.module.pandaculture.CulturePresenter;
 import com.example.iu.myapplication.module.pandalive.LiveFragment;
+import com.example.iu.myapplication.module.pandalive.LivePresenter;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -110,6 +114,7 @@ public class MainActivity extends BaseActivity {
             case R.id.main_home:
                 if (homeFragment == null) {
                     homeFragment = new HomeFragment();
+
                     transaction.add(R.id.main_viewpager, homeFragment);
                     transaction.show(homeFragment);
                 } else {
@@ -118,10 +123,12 @@ public class MainActivity extends BaseActivity {
                 tabImage.setVisibility(View.VISIBLE);
                 tabImage1.setVisibility(View.VISIBLE);
                 tabTv1.setVisibility(View.GONE);
+                new HomePresenter(homeFragment);
                 break;
             case R.id.main_Pandalive:
                 if (liveFragment == null) {
                     liveFragment = new LiveFragment();
+
                     transaction.add(R.id.main_viewpager, liveFragment);
                     transaction.show(liveFragment);
                 } else {
@@ -131,10 +138,12 @@ public class MainActivity extends BaseActivity {
                 tabImage1.setVisibility(View.GONE);
                 tabTv1.setText("熊猫直播");
                 tabTv1.setVisibility(View.VISIBLE);
+                new LivePresenter(liveFragment);
                 break;
             case R.id.main_Rollingvideo:
                 if (cultureFragment == null) {
                     cultureFragment = new CultureFragment();
+
                     transaction.add(R.id.main_viewpager, cultureFragment);
                     transaction.show(cultureFragment);
                 } else {
@@ -144,10 +153,12 @@ public class MainActivity extends BaseActivity {
                 tabImage1.setVisibility(View.GONE);
                 tabTv1.setText("熊猫文化");
                 tabTv1.setVisibility(View.VISIBLE);
+                new CulturePresenter(cultureFragment);
                 break;
             case R.id.main_Pandabroadcast:
                 if (broadcastFragme == null) {
                     broadcastFragme = new BroadcastFragment();
+
                     transaction.add(R.id.main_viewpager, broadcastFragme);
                     transaction.show(broadcastFragme);
                 } else {
@@ -157,10 +168,12 @@ public class MainActivity extends BaseActivity {
                 tabImage1.setVisibility(View.GONE);
                 tabTv1.setText("熊猫播报");
                 tabTv1.setVisibility(View.VISIBLE);
+                new BroadcastPresenter(broadcastFragme);
                 break;
             case R.id.main_liveCN:
                 if (chinaFragment == null) {
                     chinaFragment = new ChinaFragment();
+
                     transaction.add(R.id.main_viewpager, chinaFragment);
                     transaction.show(chinaFragment);
                 } else {
@@ -170,6 +183,7 @@ public class MainActivity extends BaseActivity {
                 tabImage1.setVisibility(View.GONE);
                 tabTv1.setText("直播中国");
                 tabTv1.setVisibility(View.VISIBLE);
+                new ChinaPresenter(chinaFragment);
                 break;
         }
         transaction.commit();

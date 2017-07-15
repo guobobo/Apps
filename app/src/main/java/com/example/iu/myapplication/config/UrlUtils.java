@@ -13,7 +13,12 @@ public class UrlUtils {
     public static final String HOMEURL =BaseURL+"";
 
     //熊猫直播接口
-    public static final String LIVEURL = BaseURL+"";
+    public static final String LIVEURL = BaseURL+"PAGE14501769230331752/index.json";
+
+    //熊猫直播多视角直播
+    public static final String MULTIPLE = BaseURL+"PAGE14501769230331752/PAGE14501787896813312/index.json";
+
+    public static final String Wonderful="http://api.cntv.cn/video/videolistById";
 
     //熊猫文化接口
     public static final String CULTUREURL = BaseURL+"";

@@ -12,7 +12,6 @@ import com.example.iu.myapplication.model.entity.ChinaBean;
 
 public class ChinaFragment extends BaseFragment implements  ChinaContarct.View{
 
-
     @Override
     public int getLayoutId() {
         return R.layout.fragment_livecn;

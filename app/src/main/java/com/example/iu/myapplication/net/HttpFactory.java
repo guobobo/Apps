@@ -8,6 +8,6 @@ public class HttpFactory {
 
     public static IHttp httpCreate(){
 
-        return OkHttpUtils.getInstance();
+        return OkhttpUtils.getInstance();
     }
 }

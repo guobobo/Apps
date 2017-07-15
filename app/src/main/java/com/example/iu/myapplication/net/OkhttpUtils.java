@@ -21,20 +21,23 @@ import okhttp3.Response;
  * Created by dell on 2017/7/12.
  */
 
-class OkHttpUtils implements IHttp{
+public class OkhttpUtils implements IHttp{
 
     private OkHttpClient client ;
-    private static OkHttpUtils utils;
+    private static OkhttpUtils utils;
 
-    private OkHttpUtils(){
+    private OkhttpUtils(){
         client =  new OkHttpClient();
     }
 
-    public static OkHttpUtils getInstance(){
+    public static OkhttpUtils getInstance(){
 
         if(utils==null){
-            synchronized (OkHttpUtils.class){
-                utils = new OkHttpUtils();
+            synchronized (OkhttpUtils.class){
+                if(utils==null){
+                    utils = new OkhttpUtils();
+                }
+
             }
         }
 
