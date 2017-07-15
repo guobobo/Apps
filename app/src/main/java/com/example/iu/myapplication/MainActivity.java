@@ -19,9 +19,11 @@ import com.example.iu.myapplication.module.home.HomePresenter;
 import com.example.iu.myapplication.module.pandabroadcast.BroadcastFragment;
 import com.example.iu.myapplication.module.pandabroadcast.BroadcastPresenter;
 import com.example.iu.myapplication.module.pandaculture.CultureFragment;
+
 import com.example.iu.myapplication.module.pandaculture.CulturePresenter;
 import com.example.iu.myapplication.module.pandalive.LiveFragment;
 import com.example.iu.myapplication.module.pandalive.LivePresenter;
+
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -215,7 +217,6 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.main_viewpager, homeFragment);
         transaction.commit();
-
     }
 
 }

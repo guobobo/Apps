@@ -20,7 +20,6 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View{
     @Override
     public void initView(View view) {
 
-
     }
 
     @Override
@@ -30,8 +29,6 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View{
 
     @Override
     public void showProgressDialog() {
-
-
 
     }
 

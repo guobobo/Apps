@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/x270"
+            android:layout_height="@dimen/y150"
+            android:layout_marginTop="@dimen/y20"
+            android:id="@+id/light_image"
+            android:src="@drawable/_no_collect"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/x20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张家界：云雾飘渺绕峰峦"
+                android:layout_marginTop="@dimen/y20"
+                android:textColor="@color/colorBlank"
+                android:id="@+id/light_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-06-14"
+                android:layout_marginTop="@dimen/y70"
+                android:id="@+id/light_time"/>
+        </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>

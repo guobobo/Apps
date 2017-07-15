@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y25"
+        android:background="@drawable/transverse_gray_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal">
+
+
+
+        <TextView
+            android:id="@+id/eye_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="熊猫观察"
+            android:layout_marginLeft="@dimen/x20"
+            android:textColor="@color/colorBlue"
+            android:layout_gravity="center_vertical"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@drawable/transverse_gray_line"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/y10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@drawable/transverse_gray_line"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/y20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/x200"
+            android:layout_height="@dimen/y200"
+            android:id="@+id/eye_logeimage"
+            android:src="@drawable/tab_panda_eye_normal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/eye_newbtn"
+                android:layout_width="@dimen/x130"
+                android:layout_height="@dimen/y50"
+                android:background="@drawable/btn_eye"
+                android:text="新生"
+                android:textColor="@color/colorAccent"
+                android:layout_gravity="center_vertical"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eye_newtext"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlank"
+                android:text="东北虎五胞胎取名谐音为“东北欢迎你”"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="@dimen/y10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:background="@drawable/transverse_gray_line"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/eye_interestingbtn"
+                android:layout_width="@dimen/x130"
+                android:layout_height="@dimen/y50"
+                android:background="@drawable/btn_eye"
+                android:text="趣闻"
+                android:textColor="@color/colorAccent"
+                android:layout_gravity="center_vertical"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eye_interestingtext"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlank"
+                android:text="萌娃“越狱”哥哥助弟弟下床"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/y10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@drawable/transverse_gray_line"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/x270"
+            android:layout_height="@dimen/y150"
+            android:layout_marginTop="@dimen/y20"
+            android:id="@+id/eye_list_image1"
+            android:src="@drawable/_no_collect"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/x20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="英国一年一度抬床比赛过程欢乐多"
+                android:layout_marginTop="@dimen/y20"
+                android:textColor="@color/colorBlank"
+                android:id="@+id/list_text1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-06-14"
+                android:layout_marginTop="@dimen/y70"
+                android:id="@+id/list_text2"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginTop="@dimen/y10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@drawable/transverse_gray_line"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/x270"
+            android:layout_height="@dimen/y150"
+            android:layout_marginTop="@dimen/y20"
+            android:id="@+id/eye_list_image2"
+            android:src="@drawable/_no_collect"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/x20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="坦然面对失败瑞典“失败博物馆”爆红"
+                android:layout_marginTop="@dimen/y20"
+                android:textColor="@color/colorBlank"
+                android:id="@+id/list_text3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-06-14"
+                android:layout_marginTop="@dimen/y70"
+                android:id="@+id/list_text4"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="@dimen/x300"
+        android:layout_height="@dimen/y200"
+        android:src="@drawable/_no_collect"
+        android:id="@+id/cctv_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlank"
+        android:text="《国宝档案》"
+        android:layout_marginTop="@dimen/y20"/>
+
+</LinearLayout>
