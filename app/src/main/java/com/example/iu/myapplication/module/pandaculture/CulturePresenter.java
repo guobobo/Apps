@@ -23,6 +23,7 @@ public class CulturePresenter implements CultureContarct.Presenter {
     @Override
     public void start() {
 
+
         cultureModel.getCultureDate(new MyNetWorkCallBack<CultureBean>() {
             @Override
             public void onSuccess(CultureBean cultureBean) {
