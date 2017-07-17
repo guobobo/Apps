@@ -3,6 +3,7 @@ package com.example.iu.myapplication.module.pandabroadcast;
 import com.example.iu.myapplication.model.biz.broadcast.BroadCastModel;
 import com.example.iu.myapplication.model.biz.broadcast.BroadCastModelImpl;
 import com.example.iu.myapplication.model.entity.BroadCastBean;
+import com.example.iu.myapplication.model.entity.BroadCastListBean;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 
 /**
@@ -33,6 +34,18 @@ public class BroadcastPresenter implements BroadcastContarct.Presenter {
             @Override
             public void onError(String msg) {
                 broadcastview.setMessage(msg);
+            }
+        });
+        broadCastModel.getBroadCastListDate(new MyNetWorkCallBack<BroadCastListBean>() {
+            @Override
+            public void onSuccess(BroadCastListBean broadCastListBean) {
+                broadcastview.setListResult(broadCastListBean);
+            }
+
+            @Override
+            public void onError(String msg) {
+                broadcastview.setMessage(msg);
+
             }
         });
     }

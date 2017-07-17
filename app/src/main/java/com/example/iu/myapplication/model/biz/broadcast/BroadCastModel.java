@@ -2,6 +2,7 @@ package com.example.iu.myapplication.model.biz.broadcast;
 
 import com.example.iu.myapplication.base.BaseModel;
 import com.example.iu.myapplication.model.entity.BroadCastBean;
+import com.example.iu.myapplication.model.entity.BroadCastListBean;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 
 /**
@@ -11,4 +12,5 @@ import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 public interface BroadCastModel extends BaseModel {
 
     void getBroadCastDate(MyNetWorkCallBack<BroadCastBean> callBack);
+    void getBroadCastListDate(MyNetWorkCallBack<BroadCastListBean> callBack);
 }

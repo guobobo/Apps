@@ -6,7 +6,7 @@
     <com.youth.banner.Banner
         android:id="@+id/culture_r_itema_banner"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y300">
+        android:layout_height="@dimen/y350">
     </com.youth.banner.Banner>
 
 </LinearLayout>

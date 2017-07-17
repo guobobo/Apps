@@ -74,7 +74,11 @@
 
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".module.home.Ativity.InteractiveActivity" />
-        <activity android:name=".module.home.Ativity.InteractivewebActivity"></activity>
+        <activity android:name=".module.home.Ativity.InteractivewebActivity" />
+        <activity android:name=".module.pandaculture.activity.CultureSpActivity" />
+        <activity android:name=".module.pandaculture.activity.CultureWebActivity" />
+        <activity android:name=".module.pandabroadcast.activity.BroadcastSpActivity" />
+        <activity android:name=".module.pandabroadcast.activity.BroadcastWebActivity"></activity>
     </application>
 
 </manifest>

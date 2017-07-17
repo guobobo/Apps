@@ -46,8 +46,5 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.androidkun:pulltorefreshrecyclerview:1.0.6'
-
-
-
-
+    compile project(':jcvideoplayer-lib')
 }

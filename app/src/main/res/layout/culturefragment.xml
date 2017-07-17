@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
 
 
-    <com.androidkun.PullToRefreshRecyclerView
-        android:id="@+id/culturefragemnt_precy"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/culture_xrecy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    </com.androidkun.PullToRefreshRecyclerView>
+</com.jcodecraeer.xrecyclerview.XRecyclerView>
 </LinearLayout>

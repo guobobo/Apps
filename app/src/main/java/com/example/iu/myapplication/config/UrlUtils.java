@@ -21,10 +21,14 @@ public class UrlUtils {
     public static final String Wonderful="http://api.cntv.cn/video/videolistById";
 
     //熊猫文化接口
-    public static final String CULTUREURL = BaseURL+"";
+    public static final String CULTUREURL = BaseURL+"xmwh/index.json";
 
-    //熊猫播报
-    public static final String BROADCASTURL = BaseURL+"";
+    //熊猫播报、观察
+    public static final String BROADCASTURL = BaseURL+"PAGE14503485387528442/index.json";
+
+    //熊猫播报,LIST
+    public static final String BROADCASTURLLIST = "http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1449807494852603,PAGE1451473625420136,PAGE1449807502866458,PAGE1451473627439140,PAGE1451473547108278,PAGE1451473628934144&serviceId=panda";
+
 
     //直播中国
     public static final String CHINAURL = BaseURL+"";
