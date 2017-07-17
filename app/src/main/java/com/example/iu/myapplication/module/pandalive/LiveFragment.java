@@ -16,7 +16,6 @@ import com.example.iu.myapplication.module.pandalive.live.LiveOnPresenter;
 import com.example.iu.myapplication.module.pandalive.wonderful.WonderfulFragment;
 import com.example.iu.myapplication.module.pandalive.wonderful.WonderfulPresenter;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,58 +63,6 @@ public class LiveFragment extends BaseFragment implements LiveContarct.View {
         linearLayout.setDividerDrawable(ContextCompat.getDrawable(getContext(),
                 R.drawable.radio_bg));
 
-        for (int i = 0; i < pandaLiveTab.getTabCount(); i++) {
-            TabLayout.Tab tab = pandaLiveTab.getTabAt(i);
-            if (tab == null) return;
-            Class c = tab.getClass();
-            try {
-                Field field = c.getDeclaredField("mView");
-
-                field.setAccessible(true);
-                view = (View) field.get(tab);
-                if (view == null) return;
-                view.setTag(i);
-                final View finalView = view;
-                view.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        int position = (int) finalView.getTag();
-                        switch (position){
-                            case 1:
-                                liveonFragment1.setVSID("VSET100167216881");
-                                break;
-                            case 2:
-                                liveonFragment1.setVSID("VSET100332640004");
-                                break;
-                            case 3:
-                                liveonFragment1.setVSID("VSET100272959126");
-                                break;
-                            case 4:
-                                liveonFragment1.setVSID("VSET100340574858");
-                                break;
-                            case 5:
-                                liveonFragment1.setVSID("VSET100284428835");
-                                break;
-                            case 6:
-                                liveonFragment1.setVSID("VSET100237714751");
-                                break;
-                            case 7:
-                                liveonFragment1.setVSID("VSET100167308855");
-                                break;
-                            case 8:
-                                liveonFragment1.setVSID("VSET100219009515");
-                                break;
-                        }
-
-                    }
-                });
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
     }
 
     @Override
@@ -150,14 +97,14 @@ public class LiveFragment extends BaseFragment implements LiveContarct.View {
 
     public void setPageFragment() {
         LiveOnFragment liveonFragment=new LiveOnFragment();
-        liveonFragment1 = new WonderfulFragment();
-        liveonFragment2 = new WonderfulFragment();
-        liveonFragment3 = new WonderfulFragment();
-        liveonFragment4 = new WonderfulFragment();
-        liveonFragment5 = new WonderfulFragment();
-        liveonFragment6 = new WonderfulFragment();
-        liveonFragment7 = new WonderfulFragment();
-        liveonFragment8 = new WonderfulFragment();
+        liveonFragment1 = new WonderfulFragment("VSET100167216881");
+        liveonFragment2 = new WonderfulFragment("VSET100332640004");
+        liveonFragment3 = new WonderfulFragment("VSET100272959126");
+        liveonFragment4 = new WonderfulFragment("VSET100340574858");
+        liveonFragment5 = new WonderfulFragment("VSET100284428835");
+        liveonFragment6 = new WonderfulFragment("VSET100237714751");
+        liveonFragment7 = new WonderfulFragment("VSET100167308855");
+        liveonFragment8 = new WonderfulFragment("VSET100219009515");
         fragmentList.add(liveonFragment);
         fragmentList.add(liveonFragment1);
         fragmentList.add(liveonFragment2);

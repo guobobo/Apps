@@ -11,17 +11,13 @@ import com.example.iu.myapplication.model.entity.ChinaBean;
 public interface ChinaContarct {
 
     interface View extends BaseView<ChinaContarct.Presenter> {
-
         void showProgressDialog();
         void dismissDialog();
         void setResult(ChinaBean chinaBean);
         void setMessage(String msg);
-
     }
 
     interface Presenter extends BasePresenter {
-
-
 
     }
 

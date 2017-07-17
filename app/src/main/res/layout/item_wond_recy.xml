@@ -13,27 +13,27 @@
         >
         <ImageView
             android:id="@+id/recy_wond_img"
-            android:layout_width="@dimen/x300"
+            android:layout_width="@dimen/x200"
             android:layout_height="@dimen/y200"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y200"
+            android:layout_height="@dimen/y300"
             android:orientation="vertical"
             android:layout_weight="1"
-            android:padding="@dimen/x20"
+            android:padding="@dimen/x10"
             >
             <TextView
                 android:id="@+id/recy_wond_title"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/y100"
+                android:layout_height="@dimen/y150"
                 android:textColor="@color/colorBlank"
                 android:text="《精彩一刻》 20170714 照个证件照，麻烦配合一下"
                 />
             <TextView
                 android:id="@+id/recy_wond_ptime"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/colorBlank"
                 android:text="2017-07-14 13:18:32"

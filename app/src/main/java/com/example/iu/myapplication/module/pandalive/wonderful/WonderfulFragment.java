@@ -23,12 +23,16 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
     private ArrayList<WonderfulBean.VideoBean> list;
     private WonderfulAdapter wonderfulAdapter;
 
-    private static String VSID="VSET100167216881";
-    private static final String n="7";
+    private  String VSID;
+    private static String n="7";
     private static final String serviceId="panda";
     private static final String o="desc";
     private static final String of="time";
     private static int p=1;
+
+    public WonderfulFragment(String VSID) {
+        this.VSID = VSID;
+    }
 
     @Override
     public int getLayoutId() {
@@ -78,7 +82,7 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
                     public void run() {
                         p++;
                     }
-                }, 2000);
+                }, 1000);
                 presenter.Addthenumber(VSID,n,serviceId,o,of,p+"");
                 wondXrecy.loadMoreComplete();
                 wonderfulAdapter.notifyDataSetChanged();
@@ -86,15 +90,10 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
         });
 
     }
-    
+
     @Override
     public void setMessage(String msg) {
 
     }
-    public static void setVSID(String s){
-        VSID=s;
-    }
-    public static String getVSID(){
-        return VSID;
-    }
+
 }
