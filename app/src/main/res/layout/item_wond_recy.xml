@@ -13,13 +13,13 @@
         >
         <ImageView
             android:id="@+id/recy_wond_img"
-            android:layout_width="@dimen/x200"
+            android:layout_width="@dimen/x250"
             android:layout_height="@dimen/y200"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y300"
+            android:layout_height="@dimen/y200"
             android:orientation="vertical"
             android:layout_weight="1"
             android:padding="@dimen/x10"
@@ -27,7 +27,7 @@
             <TextView
                 android:id="@+id/recy_wond_title"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/y150"
+                android:layout_height="@dimen/y140"
                 android:textColor="@color/colorBlank"
                 android:text="《精彩一刻》 20170714 照个证件照，麻烦配合一下"
                 />
