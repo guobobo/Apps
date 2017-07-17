@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="@dimen/x300"
-        android:layout_height="@dimen/x200"
-        android:id="@+id/area_item_image"
-        android:src="@drawable/_no_collect"/>
-
-    <TextView
+    <LinearLayout
+        android:layout_marginLeft="@dimen/x20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="洗澡呢？小公主都要睡着了"
-        android:layout_marginTop="@dimen/y20"
-        android:textColor="@color/colorBlank"/>
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/x200"
+            android:id="@+id/area_item_image"
+            android:src="@drawable/_no_collect"/>
+
+        <TextView
+            android:id="@+id/area_item_text"
+            android:layout_width="@dimen/x280"
+            android:layout_height="wrap_content"
+            android:text="洗澡呢？小公主都要睡着了"
+            android:layout_marginTop="@dimen/y20"
+            android:textColor="@color/colorBlank"/>
+    </LinearLayout>
+
+
 
 </LinearLayout>

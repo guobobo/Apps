@@ -23,6 +23,9 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.OnClick;
 
+
+
+
 public class LiveOnFragment extends BaseFragment implements LiveOnContarct.View {
 
     @Bind(R.id.duo)
