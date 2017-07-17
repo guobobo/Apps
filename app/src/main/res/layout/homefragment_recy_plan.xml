@@ -20,7 +20,7 @@
             android:id="@+id/china_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="熊猫直播"
+            android:text="特别策划"
             android:layout_marginLeft="@dimen/x20"
             android:textColor="@color/colorBlue"
             android:layout_gravity="center_vertical"/>
@@ -29,13 +29,14 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y10"
+        android:layout_height="@dimen/y15"
         android:background="@drawable/transverse_gray_line" />
 
     <ImageView
-        android:layout_marginTop="@dimen/y20"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y350"
+
+        android:layout_marginTop="@dimen/y10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/plan_image"
         android:layout_marginLeft="@dimen/x20"
         android:layout_marginRight="@dimen/x20"
@@ -43,10 +44,11 @@
 
 
     <TextView
+        android:id="@+id/plan_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="二十四节气--芒种"
         android:layout_marginLeft="@dimen/x20"
-        android:layout_marginTop="@dimen/y20"
+        android:layout_marginTop="@dimen/y10"
         android:textColor="@color/colorBlank"/>
 </LinearLayout>

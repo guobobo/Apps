@@ -18,7 +18,7 @@
             android:layout_marginLeft="@dimen/x20"
             android:id="@+id/area_imge"
             android:layout_width="@dimen/x100"
-            android:layout_height="@dimen/y100"
+            android:layout_height="@dimen/y75"
             android:src="@mipmap/ic_launcher"/>
 
         <TextView
@@ -35,15 +35,15 @@
     <TextView
         android:layout_marginTop="@dimen/y10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y10"
+        android:layout_height="@dimen/y15"
         android:background="@drawable/transverse_gray_line"/>
 
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y200"
+        android:layout_height="wrap_content"
         android:id="@+id/area_recy"
-        android:layout_marginTop="@dimen/y20">
+        android:layout_marginTop="@dimen/y10">
 
 
     </android.support.v7.widget.RecyclerView>

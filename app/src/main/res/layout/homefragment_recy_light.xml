@@ -29,14 +29,14 @@
     </LinearLayout>
 
     <TextView
+        android:layout_marginTop="@dimen/y10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y10"
-        android:background="@drawable/transverse_gray_line" />
-
+        android:layout_height="@dimen/y15"
+        android:background="@drawable/transverse_gray_line"/>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/y1024"
         android:divider="#cccccc"
         android:dividerHeight="1dp"
         android:id="@+id/light_listview">

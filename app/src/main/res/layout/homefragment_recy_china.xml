@@ -20,7 +20,7 @@
             android:id="@+id/china_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="熊猫直播"
+            android:text="直播中国"
             android:layout_marginLeft="@dimen/x20"
             android:textColor="@color/colorBlue"
             android:layout_gravity="center_vertical"/>
@@ -28,15 +28,16 @@
     </LinearLayout>
 
     <TextView
+        android:layout_marginTop="@dimen/y10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y10"
-        android:background="@drawable/transverse_gray_line" />
+        android:layout_height="@dimen/y15"
+        android:background="@drawable/transverse_gray_line"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/y10"
-        android:id="@+id/wall_recy">
+        android:id="@+id/china_recy">
 
     </android.support.v7.widget.RecyclerView>
 

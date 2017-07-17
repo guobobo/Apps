@@ -4,17 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="@dimen/x300"
-        android:layout_height="@dimen/y200"
-        android:src="@drawable/_no_collect"
-        android:id="@+id/cctv_image"/>
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorBlank"
-        android:text="《国宝档案》"
-        android:layout_marginTop="@dimen/y20"/>
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y200"
+            android:src="@drawable/_no_collect"
+            android:id="@+id/cctv_image"/>
+
+        <TextView
+            android:id="@+id/cctv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlank"
+            android:text="《国宝档案》"
+            android:layout_marginTop="@dimen/y20"/>
+    </LinearLayout>
+
+
 
 </LinearLayout>
