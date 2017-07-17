@@ -4,12 +4,22 @@
     android:id="@+id/activity_culture_sp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
->
+    android:orientation="vertical">
+
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
         android:id="@+id/culture_jc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/_no_img">
+
+
+
+        <ImageView
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/y50"
+            android:src="@mipmap/ic_launcher"
+            android:layout_alignParentRight="true"/>
+
 
     </fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
 </LinearLayout>
