@@ -116,7 +116,7 @@ public class MainActivity extends BaseActivity {
             case R.id.main_home:
                 if (homeFragment == null) {
                     homeFragment = new HomeFragment();
-
+                    new HomePresenter(homeFragment);
                     transaction.add(R.id.main_viewpager, homeFragment);
                     transaction.show(homeFragment);
                 } else {

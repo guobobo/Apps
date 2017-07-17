@@ -8,9 +8,9 @@ public class UrlUtils {
 
     //基本接口
     private static final String BaseURL = "http://www.ipanda.com/kehuduan/";
-
+//http://www.ipanda.com/kehuduan/
     //首页接口
-    public static final String HOMEURL =BaseURL+"";
+    public static final String HOMEURL =BaseURL+"PAGE14501749764071042/index.json";
 
     //熊猫直播接口
     public static final String LIVEURL = BaseURL+"PAGE14501769230331752/index.json";

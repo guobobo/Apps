@@ -5,5 +5,4 @@ package com.example.iu.myapplication.module.home.Ativity;
  */
 
 public interface InteractiveContarct {
-
 }
