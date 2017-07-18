@@ -61,5 +61,12 @@ public class BroadcastWebActivity extends AppCompatActivity {
                 super.onPageFinished(view, url);
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

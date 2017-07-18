@@ -11,8 +11,9 @@ import android.widget.Toast;
 import com.androidkun.PullToRefreshRecyclerView;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
+import com.example.iu.myapplication.config.LogUtils;
 import com.example.iu.myapplication.model.entity.CultureBean;
-import com.example.iu.myapplication.module.pandaculture.activity.CultureSpActivity;
+import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastSpActivity;
 import com.example.iu.myapplication.module.pandaculture.adapter.CultureAdapter;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -143,9 +144,13 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
 
     @Override
     public void Interfacecallback(int position) {
-        Intent intent = new Intent(getActivity(), CultureSpActivity.class);
-        CultureBean.ListBean listBean = list2.get(position);
-        intent.putExtra("name",listBean);
+        Intent intent = new Intent(getActivity(), BroadcastSpActivity.class);
+        CultureBean.ListBean listBean = list2.get(position-1);
+        String title = listBean.getTitle();
+        String url = "";
+        intent.putExtra("title",title);
+        LogUtils.MyLog("TAG","........................"+title);
+        intent.putExtra("url",url);
         startActivity(intent);
 
 

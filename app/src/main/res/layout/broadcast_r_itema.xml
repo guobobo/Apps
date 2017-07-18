@@ -11,13 +11,14 @@
         />
 
     <TextView
+        android:background="@drawable/lpanda_bottom_gra"
         android:id="@+id/broadcast_r_itema_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/y40"
         android:textColor="#fff"
         android:text="123546"
         android:textSize="12sp"
-        android:layout_marginTop="@dimen/y370"
+        android:layout_marginTop="@dimen/y360"
         />
 
 </RelativeLayout>

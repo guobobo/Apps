@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iu.myapplication.R;
-import com.example.iu.myapplication.model.entity.CultureBean;
 
 import fm.jiecao.jcvideoplayer_lib.JCUserAction;
 import fm.jiecao.jcvideoplayer_lib.JCUserActionStandard;
@@ -20,13 +19,16 @@ public class CultureSpActivity extends AppCompatActivity {
 
     private JCVideoPlayerStandard culture_jc;
     private String title;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_culture_sp);
-        CultureBean.ListBean listBean = getIntent().getParcelableExtra("name");
-        title = listBean.getTitle();
+//        CultureBean.ListBean listBean = getIntent().getParcelableExtra("name");
+//        title = listBean.getTitle();
+        title = getIntent().getStringExtra("title");
+        url = getIntent().getStringExtra("url");
         initView();
     }
 
