@@ -59,20 +59,6 @@ public class Home_Wonderful_Adapter extends RecyclerView.Adapter {
         my_view.textView.setText(listscroll.get(position).getTitle());
 
         Glide.with(activity).load(listscroll.get(position).getImage()).into(my_view.imageView);
-
-
-//        精彩直播的点击事件
-        my_view.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                wonder_onclick.Wonder_getOnclick(v,position);
-
-            }
-        });
-
-
-
     }
 
     @Override

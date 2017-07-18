@@ -7,7 +7,7 @@
         android:color="#00000000">
     </stroke>
 
-    <gradient android:startColor="#f0f0f0f0"
+    <gradient android:startColor="#f0f0f0"
         android:centerColor="#f0f0f0"
         android:endColor="#f0f0f0"
         android:type="linear">

@@ -2,6 +2,7 @@ package com.example.iu.myapplication.module.home;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
@@ -25,6 +26,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View {
     private ArrayList<HomeBean.DataBean> list = new ArrayList<HomeBean.DataBean>();
 
     private HomeContarct.Presenter presenter;
+    private HomeFragmentAdapter adapter;
 
     @Override
     public int getLayoutId() {
@@ -34,6 +36,19 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View {
     @Override
     public void initView(View view) {
 
+        homeXrecy.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                adapter.notifyDataSetChanged();
+                homeXrecy.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                Toast.makeText(getActivity(), "没有更多数据了", Toast.LENGTH_SHORT).show();
+                homeXrecy.refreshComplete();
+            }
+        });
     }
 
     @Override
@@ -43,6 +58,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View {
 
     @Override
     public void showProgressDialog() {
+
+
     }
 
     @Override
@@ -70,7 +87,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View {
 
         list.add(data);
 
-        HomeFragmentAdapter adapter = new HomeFragmentAdapter(home_data_object, getActivity(), list);
+        adapter = new HomeFragmentAdapter(home_data_object, getActivity(), list);
 
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
 

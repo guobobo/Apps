@@ -75,13 +75,17 @@
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".module.home.Ativity.InteractiveActivity" />
         <activity android:name=".module.home.Ativity.InteractivewebActivity" />
-
-        <activity android:name=".module.pandaculture.activity.CultureSpActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".module.pandaculture.activity.CultureSpActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".module.pandaculture.activity.CultureWebActivity" />
-        <activity android:name=".module.pandabroadcast.activity.BroadcastSpActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".module.pandabroadcast.activity.BroadcastWebActivity"></activity>
+        <activity
+            android:name=".module.pandabroadcast.activity.BroadcastSpActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".module.pandabroadcast.activity.BroadcastWebActivity" />
+        <activity android:name=".PersonalActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HistoryActivity"></activity>
     </application>
 
 </manifest>

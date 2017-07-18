@@ -1,5 +1,6 @@
 package com.example.iu.myapplication;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
@@ -73,6 +74,7 @@ public class MainActivity extends BaseActivity {
                 case 123:
                     linearimage.setVisibility(View.GONE);
                     linear.setVisibility(View.VISIBLE);
+                    login(tabUser);
                     timer.cancel();
                     break;
             }
@@ -217,6 +219,18 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.main_viewpager, homeFragment);
         transaction.commit();
+    }
+
+    private void login(ImageView imageView){
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,PersonalActivity.class));
+            }
+        });
+
+
     }
 
 }
