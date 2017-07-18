@@ -3,8 +3,11 @@ package com.example.iu.myapplication.module.pandaculture.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.model.entity.CultureBean;
 
@@ -30,11 +33,19 @@ public class CultureSpActivity extends AppCompatActivity {
     private void initView() {
         culture_jc = (JCVideoPlayerStandard) findViewById(R.id.culture_jc);
         culture_jc.setUp("http://video.jiecao.fm/11/23/xin/%E5%81%87%E4%BA%BA.mp4"
-                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, title);
-        Glide.with(this)
-                .load("http://img4.jiecaojingxuan.com/2016/11/23/00b026e7-b830-4994-bc87-38f4033806a6.jpg@!640_360")
-                .into(culture_jc.thumbImageView);
+                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL);
+        culture_jc.thumbImageView.setImageResource(R.drawable._no_img);
         JCVideoPlayer.setJcUserAction(new MyUserActionStandard());
+
+        ImageView imageView = (ImageView) findViewById(R.id.culture_img1);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CultureSpActivity.this, "333", Toast.LENGTH_SHORT).show();
+            }
+        });
+        TextView textView = (TextView) findViewById(R.id.culture_title);
+        textView.setText(title);
     }
     @Override
     protected void onPause() {

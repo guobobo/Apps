@@ -12,6 +12,8 @@ import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.model.entity.BroadCastBean;
 import com.example.iu.myapplication.model.entity.BroadCastListBean;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,7 +62,13 @@ public class BroadcastAdapter extends RecyclerView.Adapter {
             case 1:
                 Glide.with(context).load(list1.get(position).getPicurl2()).into(h.bimg1);
                 h.btv1.setText(list1.get(position).getTitle());
-                h.btv2.setText(list1.get(position).getVideolength());
+
+                long focus_date = list1.get(position).getFocus_date();
+                Date d = new Date(focus_date);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String format = sdf.format(d);
+                h.btv2.setText(format);
+                h.btv3.setText(list1.get(position).getVideolength());
 
                 break;
 
@@ -80,6 +88,7 @@ public class BroadcastAdapter extends RecyclerView.Adapter {
         private final ImageView bimg1;
         private final TextView btv1;
         private final TextView btv2;
+        private final TextView btv3;
         private final TextView atv;
 
         public MyHoder(View itemView) {
@@ -95,6 +104,7 @@ public class BroadcastAdapter extends RecyclerView.Adapter {
             bimg1 = (ImageView) itemView.findViewById(R.id.broadcast_r_itemb_img1);
             btv1 = (TextView) itemView.findViewById(R.id.broadcast_r_itemb_tv1);
             btv2 = (TextView) itemView.findViewById(R.id.broadcast_r_itemb_tv2);
+            btv3 = (TextView) itemView.findViewById(R.id.broadcast_r_itemb_tv3);
         }
     }
     public interface  setListentoevents{

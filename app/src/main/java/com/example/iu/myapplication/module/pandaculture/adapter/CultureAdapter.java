@@ -90,6 +90,7 @@ public class CultureAdapter extends RecyclerView.Adapter {
                 Glide.with(context).load(list2.get(position).getImage()).into(h.img);
                 h.tv1.setText(list2.get(position).getTitle());
                 h.tv2.setText(list2.get(position).getBrief());
+                h.tv3.setText(list2.get(position).getVideoLength());
                 break;
         }
     }
@@ -103,6 +104,7 @@ public class CultureAdapter extends RecyclerView.Adapter {
 
         private final TextView tv1;
         private final TextView tv2;
+        private final TextView tv3;
         private final ImageView img;
         private final Banner banner;
 
@@ -110,6 +112,7 @@ public class CultureAdapter extends RecyclerView.Adapter {
             super(itemView);
             tv1 = (TextView) itemView.findViewById(R.id.culture_r_itemb_tv1);
             tv2 = (TextView) itemView.findViewById(R.id.culture_r_itemb_tv2);
+            tv3 = (TextView) itemView.findViewById(R.id.culture_r_itemb_tv3);
             img = (ImageView) itemView.findViewById(R.id.culture_r_itemb_img);
             banner = (Banner) itemView.findViewById(R.id.culture_r_itema_banner);
 

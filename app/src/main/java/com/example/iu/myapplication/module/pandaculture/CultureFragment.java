@@ -148,5 +148,6 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
         intent.putExtra("name",listBean);
         startActivity(intent);
 
+
     }
 }

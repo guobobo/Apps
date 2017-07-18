@@ -3,10 +3,8 @@ package com.example.iu.myapplication.module.pandabroadcast.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.model.entity.BroadCastListBean;
 
@@ -32,19 +30,12 @@ public class BroadcastSpActivity extends AppCompatActivity {
     private void initView() {
         broadcast_jc = (JCVideoPlayerStandard) findViewById(R.id.broadcast_jc);
         broadcast_jc.setUp("http://video.jiecao.fm/11/23/xin/%E5%81%87%E4%BA%BA.mp4"
-                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, title);
-        Glide.with(this)
-                .load("http://img4.jiecaojingxuan.com/2016/11/23/00b026e7-b830-4994-bc87-38f4033806a6.jpg@!640_360")
-                .into(broadcast_jc.thumbImageView);
-        broadcast_jc.backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(BroadcastSpActivity.this, "666", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
+                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL);
+        broadcast_jc.thumbImageView.setImageResource(R.drawable._no_img);
         JCVideoPlayer.setJcUserAction(new MyUserActionStandard());
+        TextView textView= (TextView) findViewById(R.id.broadcastSp_title);
+        textView.setText(title);
+
     }
         @Override
         protected void onPause() {
