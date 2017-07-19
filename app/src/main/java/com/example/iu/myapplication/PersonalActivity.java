@@ -36,6 +36,7 @@ public class PersonalActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.personal_backImage:
+                finish();
                 break;
             case R.id.liner_login:
                 startActivity(new Intent(PersonalActivity.this,LoginActivity.class));
@@ -44,8 +45,10 @@ public class PersonalActivity extends BaseActivity {
                 startActivity(new Intent(PersonalActivity.this,HistoryActivity.class));
                 break;
             case R.id.liner_collection:
+                startActivity(new Intent(PersonalActivity.this,CollectionActivity.class));
                 break;
             case R.id.linear_set:
+                startActivity(new Intent(PersonalActivity.this,SetActivity.class));
                 break;
         }
     }

@@ -85,7 +85,11 @@
         <activity android:name=".module.pandabroadcast.activity.BroadcastWebActivity" />
         <activity android:name=".PersonalActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".CollectionActivity" />
+        <activity android:name=".SetActivity" />
+        <activity android:name=".RegisteredActivity" />
+        <activity android:name=".ForgetActivity"></activity>
     </application>
 
 </manifest>

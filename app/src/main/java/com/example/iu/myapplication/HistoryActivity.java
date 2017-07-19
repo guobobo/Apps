@@ -1,13 +1,50 @@
 package com.example.iu.myapplication;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
-public class HistoryActivity extends AppCompatActivity {
+import com.example.iu.myapplication.base.BaseActivity;
+
+import butterknife.Bind;
+import butterknife.OnClick;
+
+public class HistoryActivity extends BaseActivity {
+
+
+    @Bind(R.id.history_backImage)
+    ImageView historyBackImage;
+    @Bind(R.id.history_editBtn)
+    Button historyEditBtn;
+    @Bind(R.id.history_listview)
+    ListView historyListview;
+    @Bind(R.id.history_item_chooseBtn)
+    Button historyItemChooseBtn;
+    @Bind(R.id.history_item_deleteBtn)
+    Button historyItemDeleteBtn;
+    @Bind(R.id.liner_chooseAnddelete)
+    LinearLayout linerChooseAnddelete;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+    public int getLayoutId() {
+        return R.layout.activity_history;
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @OnClick({R.id.history_backImage, R.id.history_editBtn})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.history_backImage:
+                finish();
+                break;
+            case R.id.history_editBtn:
+                break;
+        }
     }
 }

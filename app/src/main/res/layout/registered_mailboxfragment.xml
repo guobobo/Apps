@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#0f0f0f0f"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邮箱注册需要激活后才能登陆"
+        android:textColor="@color/colorBlue"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_marginTop="@dimen/y40"/>
+
+    <EditText
+        android:id="@+id/mailboxfragmentName"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y96"
+        android:layout_marginTop="@dimen/y20"
+        android:paddingLeft="@dimen/x15"
+        android:background="@drawable/btn_round"
+        android:hint="账号：请输入邮箱" />
+
+    <EditText
+        android:id="@+id/mailboxfragmentpassward"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y96"
+        android:layout_marginTop="@dimen/y50"
+        android:paddingLeft="@dimen/x15"
+        android:background="@drawable/btn_round"
+        android:hint="请输入密码" />
+
+    <EditText
+        android:id="@+id/mailboxfragmentpassward_queren"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y96"
+        android:layout_marginTop="@dimen/y50"
+        android:paddingLeft="@dimen/x15"
+        android:background="@drawable/btn_round"
+        android:hint="请输入密码" />
+
+    <LinearLayout
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y96"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y50">
+
+        <EditText
+            android:id="@+id/phonefragment_Iamge_edit_Yanzhengma"
+            android:layout_width="@dimen/x480"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x15"
+            android:background="@drawable/btn_round"
+            android:hint="请输入图片验证码" />
+
+        <TextView
+            android:id="@+id/phonefragment_text_Yanzhengma"
+            android:layout_width="@dimen/x170"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x20"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:text="图形验证码"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y96"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y50">
+        <CheckBox
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mailboxfragment_check"
+            android:layout_marginTop="@dimen/y30"
+            android:background="@drawable/check_registered"
+            android:button="@null"
+            android:layout_marginRight="@dimen/x50"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/y30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlue"
+            android:text="我已同意并阅读《央视网网络服务使用协议》"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mailboxfragment_btn_registered"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y96"
+        android:layout_marginTop="@dimen/y50"
+        android:paddingLeft="@dimen/x15"
+        android:background="@drawable/btn_bule_round"
+        android:textColor="@color/colorWhite"
+        android:text="注册" />
+
+</LinearLayout>

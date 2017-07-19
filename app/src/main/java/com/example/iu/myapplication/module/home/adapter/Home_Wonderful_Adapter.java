@@ -29,6 +29,7 @@ public class Home_Wonderful_Adapter extends RecyclerView.Adapter {
         void Wonder_getOnclick(View view, int postion);
     }
     private Wonder_Onclick wonder_onclick;
+
     public void Wonder_setOnclick(Wonder_Onclick wonder_onclick) {
         this.wonder_onclick = wonder_onclick;
     }
@@ -48,7 +49,7 @@ public class Home_Wonderful_Adapter extends RecyclerView.Adapter {
         View view = LayoutInflater.from(activity).inflate(R.layout.area_recy_item, null);
 
 
-        return new My_View(view);
+        return new My_View(view,wonder_onclick);
     }
 
     @Override
@@ -69,13 +70,23 @@ public class Home_Wonderful_Adapter extends RecyclerView.Adapter {
     class My_View extends RecyclerView.ViewHolder {
         private ImageView imageView;
         private TextView textView;
+        private Wonder_Onclick wonder_onclick;
 
-        public My_View(View itemView) {
+        public My_View(View itemView, final Wonder_Onclick wonder_onclick) {
             super(itemView);
-
+            this.wonder_onclick = wonder_onclick;
             imageView = (ImageView) itemView.findViewById(R.id.area_item_image);
 
             textView = (TextView) itemView.findViewById(R.id.area_item_text);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    wonder_onclick.Wonder_getOnclick(v,getAdapterPosition());
+
+                }
+            });
 
         }
     }

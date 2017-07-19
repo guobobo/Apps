@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -35,9 +36,10 @@ import java.util.TimerTask;
  * Created by dell on 2017/7/15.
  */
 
-public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPager.OnPageChangeListener{
+public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPager.OnPageChangeListener , Home_Wonderful_Adapter.Wonder_Onclick {
 
 
+    private HomeBean.DataBean.AreaBean areaBean;
 
     public interface x_Recy_Onclick {
 
@@ -83,6 +85,11 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
     private ArrayList<Object> list;
     private Context context;
 
+
+    public void setx_Recy_Onclick(x_Recy_Onclick recy_onclick){
+
+        this.recy_onclick = recy_onclick;
+    }
 
     //    存放滚动轮播的 集合
     private ArrayList<View> rotation_array = new ArrayList<>();
@@ -191,6 +198,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                 View raio_view = LayoutInflater.from(context).inflate(R.layout.login_home_rotation, null);
 
                 return new Ration_viewHolder(raio_view);
+
             //            精彩推荐
             case 2:
 
@@ -249,8 +257,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
             //轮播图
             case ratation_type:
 
-                Ration_viewHolder ration_view = (Ration_viewHolder) holder;
-
+                final Ration_viewHolder ration_view = (Ration_viewHolder) holder;
 
                 HomeBean.DataBean.BigImgBean bigImgBean = (HomeBean.DataBean.BigImgBean) o;
 
@@ -263,7 +270,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
                 Wondelful_viewHolder viewHolder = (Wondelful_viewHolder) holder;
 
-                HomeBean.DataBean.AreaBean areaBean = (HomeBean.DataBean.AreaBean) o;
+                areaBean = (HomeBean.DataBean.AreaBean) o;
 
                 String image = areaBean.getImage();
 
@@ -279,22 +286,39 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
                 viewHolder.wonderful_recycel.setAdapter(adapter);
 
+                adapter.Wonder_setOnclick(this);
+
                 adapter.notifyDataSetChanged();
 
                 break;
-
+//熊猫观察
             case panda_look_type:
 
                 final Panda_look_viewHolder look_viewHolder = (Panda_look_viewHolder) holder;
 
-                HomeBean.DataBean.PandaeyeBean pandaeyeBean = (HomeBean.DataBean.PandaeyeBean) o;
+                final HomeBean.DataBean.PandaeyeBean pandaeyeBean = (HomeBean.DataBean.PandaeyeBean) o;
 
                 Glide.with(context).load(pandaeyeBean.getPandaeyelogo()).into(look_viewHolder.eye_logeimage);
 
-
                 look_viewHolder.eye_newtext.setText(pandaeyeBean.getItems().get(0).getTitle());
 
+                //新生条目的监听
+                look_viewHolder.eye_newtext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        recy_onclick.get_pandan_loog_Click(v,pandaeyeBean.getItems().get(0));
+                    }
+                });
+
                 look_viewHolder.eye_interestingtext.setText(pandaeyeBean.getItems().get(1).getTitle());
+
+                //趣闻条目的监听
+                look_viewHolder.eye_interestingtext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        recy_onclick.get_pandan_loog_second_Click(v,pandaeyeBean.getItems().get(1));
+                    }
+                });
 
                 OkhttpUtils.getInstance().get(pandaeyeBean.getPandaeyelist(), null, new MyNetWorkCallBack<Look_Down_Text>() {
                     @Override
@@ -314,6 +338,13 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                                 look_viewHolder.listView.setAdapter(listViewAdapter);
 
                                 listViewAdapter.notifyDataSetChanged();
+
+                                look_viewHolder.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        recy_onclick.get_pandan_look_down_Click(Look_Down_Array.get(position));
+                                    }
+                                });
                             }
                         });
 
@@ -327,7 +358,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
 
                 break;
-
+//熊猫直播
             case panda_live_type:
 
                 final HomeBean.DataBean.PandaliveBean pandaliveBean = (HomeBean.DataBean.PandaliveBean) o;
@@ -338,7 +369,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                 Home_Live_Adapter home_live_adapter = new Home_Live_Adapter(list,context);
                 live_holder.live_show_recy.setAdapter(home_live_adapter);
                 break;
-
+//长城直播
             case great_wall_type:
                 final HomeBean.DataBean.WallliveBean wallliveBean = (HomeBean.DataBean.WallliveBean) o;
                 Great_wall_viewHolder wall_viewHolder = (Great_wall_viewHolder) holder;
@@ -348,6 +379,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                 Home_Wall_Adapter home_wall_adapter = new Home_Wall_Adapter(list1,context);
                 wall_viewHolder.Great_Wall_recycle.setAdapter(home_wall_adapter);
                 break;
+            //直播中国
             case lice_china_type:
                 final HomeBean.DataBean.ChinaliveBean chinaliveBean = (HomeBean.DataBean.ChinaliveBean) o;
                 Live_china_viewHolder china_viewHolder = (Live_china_viewHolder) holder;
@@ -361,13 +393,18 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                 china_viewHolder.Live_China_Recycle.setAdapter(home_china_adapter);
 
                 break;
-
+//特别推荐
             case special_planning_type:
                 final HomeBean.DataBean.InteractiveBean interactiveBean = (HomeBean.DataBean.InteractiveBean) o;
                 Simping_viewHolder sim_viewHolder = (Simping_viewHolder) holder;
                 sim_viewHolder.Special_planning_title.setText(interactiveBean.getInteractiveone().get(0).getTitle());
                 Glide.with(context).load(interactiveBean.getInteractiveone().get(0).getImage()).into(sim_viewHolder.Special_planning_Imagee);
-
+                sim_viewHolder.Special_planning_Imagee.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        recy_onclick.get_special_planning_Click(v,interactiveBean.getInteractiveone().get(0));
+                    }
+                });
                 break;
 
             case cctv_type:
@@ -578,8 +615,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
             textView.setText(home_data.get(0).getBigImg().get(i).getTitle());
             Glide.with(context).load(home_data.get(0).getBigImg().get(i).getImage()).into(imag);
             rotation_array.add(page_item);
-
-
             final int finalI = i;
             imag.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -651,6 +686,13 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
     @Override
     public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void Wonder_getOnclick(View view, int postion) {
+
+        recy_onclick.get_wonderful_Click(areaBean.getListscroll().get(postion));
 
     }
 }
