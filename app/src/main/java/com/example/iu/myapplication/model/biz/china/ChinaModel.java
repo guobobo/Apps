@@ -11,5 +11,4 @@ import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 public interface ChinaModel extends BaseModel {
 
     void getChinaDate(MyNetWorkCallBack<ChinaBean> callBack);
-
 }

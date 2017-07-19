@@ -14,4 +14,6 @@ public class ChinaModelImpl implements ChinaModel {
     public void getChinaDate(MyNetWorkCallBack<ChinaBean> callBack) {
         ihttp.get(UrlUtils.CHINAURL,null,callBack);
     }
+
+
 }

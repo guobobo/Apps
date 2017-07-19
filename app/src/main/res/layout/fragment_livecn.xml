@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         >
         <android.support.design.widget.TabLayout
-            android:id="@+id/china_tab"
+            android:id="@+id/live_china_tab"
             android:layout_width="match_parent"
-            android:layout_height="41dp">
+            android:layout_height="41dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:layout_weight="1"
+            >
         </android.support.design.widget.TabLayout>
+        <View
+            android:layout_width="10dp"
+            android:layout_height="41dp"
+            android:background="@drawable/litter_hide"
+            />
         <ImageView
             android:id="@+id/live_china_add_channel"
             android:layout_width="41dp"
@@ -22,13 +33,7 @@
             android:padding="5dp"
             android:background="@android:color/white"
             />
-        <View
-            android:layout_toLeftOf="@id/live_china_add_channel"
-            android:layout_width="10dp"
-            android:layout_height="41dp"
-            android:background="@drawable/litter_hide"
-            />
-    </RelativeLayout>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

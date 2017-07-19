@@ -31,7 +31,7 @@ public class UrlUtils {
 
 
     //直播中国
-    public static final String CHINAURL = BaseURL+"";
+    public static final String CHINAURL = BaseURL+"PAGE14501775094142282/index.json";
 
     //原创互动接口
     public static final String INTERACTIVE = BaseURL+"PAGE14501767715521482/index.json";
