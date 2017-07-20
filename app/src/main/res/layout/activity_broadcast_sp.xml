@@ -5,53 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
  >
+<fm.jiecao.jcvideoplayer_lib.PandaVedioPlayer
+    android:id="@+id/my_JCV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-        android:id="@+id/broadcast_jc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/_no_img">
-
-
-
-        <RelativeLayout
-            android:id="@+id/Broadcastsp_rl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <ImageView
-                android:id="@+id/broadcastSp_img1"
-                android:layout_width="@dimen/x50"
-                android:layout_height="@dimen/y50"
-                android:src="@drawable/play_fullsrcee_share"
-                android:layout_alignParentRight="true"
-                />
-            <ImageView
-                android:id="@+id/broadcastSp_img2"
-                android:layout_width="@dimen/x50"
-                android:layout_height="@dimen/y50"
-                android:src="@drawable/play_fullsrcee_collect"
-                android:layout_toLeftOf="@+id/broadcastSp_img1"
-                />
-
-            <TextView
-                android:id="@+id/broadcastSp_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:text="1321"
-                android:layout_centerInParent="true"/>
-
-
-        </RelativeLayout>
-
-
-
-
-    </fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
-
+</fm.jiecao.jcvideoplayer_lib.PandaVedioPlayer>
 
 </RelativeLayout>

@@ -134,10 +134,17 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
         }else {
             Intent intent1 = new Intent(getActivity(), BroadcastSpActivity.class);
             BroadCastListBean.ListBean bean = list1.get(position-1);
-            String url = "";
+
             String title = bean.getTitle();
+            String id = bean.getGuid();
+            String image = bean.getPicurl();
+            String videolength = bean.getVideolength();
+
             intent1.putExtra("title",title);
-            intent1.putExtra("url",url);
+            intent1.putExtra("image",image);
+            intent1.putExtra("duration",videolength);
+            intent1.putExtra("id",id);
+
             App.context.startActivity(intent1);
         }
 

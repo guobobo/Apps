@@ -6,49 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-        android:id="@+id/culture_jc"
+
+    <com.example.iu.myapplication.module.pandabroadcast.activity.MyJCVideoPlaye
+        android:id="@+id/my"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/_no_img">
+        android:layout_height="match_parent">
+
+    </com.example.iu.myapplication.module.pandabroadcast.activity.MyJCVideoPlaye>
 
 
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <ImageView
-                android:id="@+id/culture_img1"
-                android:layout_width="@dimen/x50"
-                android:layout_height="@dimen/y50"
-                android:src="@drawable/play_fullsrcee_share"
-                android:layout_alignParentRight="true"
-                />
-            <ImageView
-                android:id="@+id/culture_img2"
-                android:layout_width="@dimen/x50"
-                android:layout_height="@dimen/y50"
-                android:src="@drawable/play_fullsrcee_collect"
-                android:layout_toLeftOf="@+id/culture_img1"
-                />
-
-            <TextView
-                android:id="@+id/culture_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:text="1321"
-                android:layout_centerInParent="true"/>
-
-
-
-        </RelativeLayout>
-
-
-
-    </fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
 </LinearLayout>

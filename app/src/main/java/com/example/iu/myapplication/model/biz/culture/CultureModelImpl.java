@@ -14,4 +14,5 @@ public class CultureModelImpl implements CultureModel {
     public void getCultureDate(MyNetWorkCallBack<CultureBean> callBack) {
         ihttp.get(UrlUtils.CULTUREURL,null,callBack);
     }
+
 }
