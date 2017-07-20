@@ -137,6 +137,9 @@ public class ChinaFragment extends BaseFragment implements ChinaContarct.View {
                     tabAdapter.EDIT_TRUE=true;
                     live_china_edit.setText("完成");
                     china_text.setVisibility(View.VISIBLE);
+
+
+
                     tabAdapter.notifyDataSetChanged();
                 } else {
                     tabAdapter.notifyDataSetChanged();
