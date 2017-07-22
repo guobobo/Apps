@@ -69,7 +69,7 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
             }
         }
     };
-
+    private Work work;
 
 
     @Override
@@ -102,33 +102,7 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
         JCVideoPlayer.setJcUserAction(new MyUserActionStandard());
     }
 
-    public void add(Work work) {
 
-        DaoMaster master = new DaoMaster(MyHelper.gethelper(BroadcastSpActivity.this).getw());
-        DaoSession daoSession = master.newSession();
-        WorkDao workDao = daoSession.getWorkDao();
-        workDao.insert(work);
-    }
-
-    public void delete(Work work) {
-
-        DaoMaster master = new DaoMaster(MyHelper.gethelper(BroadcastSpActivity.this).getw());
-        DaoSession daoSession = master.newSession();
-        WorkDao workDao = daoSession.getWorkDao();
-        workDao.delete(work);
-    }
-
-    public List<Work> selec() {
-
-        DaoMaster master = new DaoMaster(MyHelper.gethelper(BroadcastSpActivity.this).getr());
-        DaoSession daoSession = master.newSession();
-        WorkDao workDao = daoSession.getWorkDao();
-
-        QueryBuilder<Work> workQueryBuilder = workDao.queryBuilder();
-        List<Work> list = workQueryBuilder.list();
-
-        return list;
-    }
 
     public void getOk() {
 
@@ -212,11 +186,21 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
     @Override
     public void sC() {
 
+//        work = new Work();
+//        work.setData(data);
+//        work.setTitle(title);
+//        work.setUrl(video_url);
+//        work.setImage(image);
+//        add(work);
+//        selec();
+
     }
 
     @Override
     public void qxsc() {
 
+//        delete(work);
+//        selec();
     }
 
     @Override
@@ -298,5 +282,34 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
                     break;
             }
         }
+    }
+
+    public void add(Work work) {
+
+        DaoMaster master = new DaoMaster(MyHelper.gethelper(BroadcastSpActivity.this).getw());
+        DaoSession daoSession = master.newSession();
+        WorkDao workDao = daoSession.getWorkDao();
+        workDao.insert(work);
+    }
+
+    public void delete(Work work) {
+
+        DaoMaster master = new DaoMaster(MyHelper.gethelper(BroadcastSpActivity.this).getw());
+        DaoSession daoSession = master.newSession();
+        WorkDao workDao = daoSession.getWorkDao();
+        workDao.delete(work);
+    }
+
+    public void selec() {
+
+        DaoMaster master = new DaoMaster(MyHelper.gethelper(BroadcastSpActivity.this).getr());
+        DaoSession daoSession = master.newSession();
+        WorkDao workDao = daoSession.getWorkDao();
+
+        QueryBuilder<Work> workQueryBuilder = workDao.queryBuilder();
+        List<Work> list = workQueryBuilder.list();
+
+        list.get(0).getUrl();
+
     }
 }
