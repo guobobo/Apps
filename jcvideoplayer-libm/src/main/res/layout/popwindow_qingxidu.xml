@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+
+      <TextView
+      android:id="@+id/app_video_qingxidu_liuchang"
+      android:layout_width="50dp"
+      android:layout_height="30dp"
+      android:textColor="@android:color/white"
+      android:textSize="12sp"
+      android:gravity="center"
+      android:text="流畅"
+      android:background="@drawable/clarity_blue_background"
+      />
+
+      <View
+          android:id="@+id/app_video_qingxidu_liuchang_underline"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#fff"
+          />
+
+      <TextView
+      android:id="@+id/app_video_qingxidu_gaoqing"
+      android:layout_width="50dp"
+      android:layout_height="30dp"
+      android:textColor="#fff"
+      android:textSize="12sp"
+      android:text="高清"
+      android:background="@drawable/clarity_blue_background"
+      android:gravity="center"
+      />
+      <View
+          android:id="@+id/app_video_qingxidu_gaoqing_underline"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#fff"
+          />
+
+
+
+</LinearLayout>

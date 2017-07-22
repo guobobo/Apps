@@ -18,6 +18,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by dell on 2017/7/12.
  */
@@ -139,6 +140,7 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
             String id = bean.getGuid();
             String image = bean.getPicurl();
             String videolength = bean.getVideolength();
+
 
             intent1.putExtra("title",title);
             intent1.putExtra("image",image);

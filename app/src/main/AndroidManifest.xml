@@ -75,9 +75,6 @@
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".module.home.Ativity.InteractiveActivity" />
         <activity android:name=".module.home.Ativity.InteractivewebActivity" />
-        <activity
-            android:name=".module.pandaculture.activity.CultureSpActivity"
-            android:screenOrientation="landscape" />
         <activity android:name=".module.pandaculture.activity.CultureWebActivity" />
         <activity
             android:name=".module.pandabroadcast.activity.BroadcastSpActivity"
@@ -89,7 +86,9 @@
         <activity android:name=".CollectionActivity" />
         <activity android:name=".SetActivity" />
         <activity android:name=".RegisteredActivity" />
-        <activity android:name=".ForgetActivity"></activity>
+        <activity android:name=".ForgetActivity" />
+        <activity android:name=".module.pandaculture.activity.CultureSpActivity"></activity>
+
     </application>
 
 </manifest>

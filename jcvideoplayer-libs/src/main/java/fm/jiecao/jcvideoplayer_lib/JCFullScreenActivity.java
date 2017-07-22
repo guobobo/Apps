@@ -58,6 +58,9 @@ public class JCFullScreenActivity extends Activity implements PandaVedioPlayer.Q
     OBJECTS = obj;
     Intent intent = new Intent(context, JCFullScreenActivity.class);
     context.startActivity(intent);
+
+
+
   }
 
 
@@ -82,6 +85,10 @@ public class JCFullScreenActivity extends Activity implements PandaVedioPlayer.Q
     } catch (Exception e) {
       e.printStackTrace();
     }
+
+
+
+
     //得到反射对象之后设置一些成员变量
     pandaVedioPlayer.IF_CURRENT_IS_FULLSCREEN = true;//当前是否充满全屏
     pandaVedioPlayer.IF_FULLSCREEN_IS_DIRECTLY = DIRECT_FULLSCREEN;//是否直接充满全屏

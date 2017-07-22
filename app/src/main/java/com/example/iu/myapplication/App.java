@@ -3,9 +3,7 @@ package com.example.iu.myapplication;
 import android.app.Application;
 
 import com.example.iu.myapplication.base.BaseActivity;
-import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
-import com.umeng.socialize.UMShareAPI;
 
 /**
  * Created by dell on 2017/5/24.
@@ -25,8 +23,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        UMShareAPI.get(this);
 
-        MobclickAgent.openActivityDurationTrack(false);
     }
 }

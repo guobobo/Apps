@@ -6,8 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Appss.iml" filepath="$PROJECT_DIR$/Appss.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jcvideoplayer-libs/jcvideoplayer-libs.iml" filepath="$PROJECT_DIR$/jcvideoplayer-libs/jcvideoplayer-libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jcvideoplayer-libm/jcvideoplayer-libm.iml" filepath="$PROJECT_DIR$/jcvideoplayer-libm/jcvideoplayer-libm.iml" />
     </modules>
   </component>
 </project>

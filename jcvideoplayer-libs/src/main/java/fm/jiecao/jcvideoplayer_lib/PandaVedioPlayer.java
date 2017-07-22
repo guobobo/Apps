@@ -78,7 +78,6 @@ public class PandaVedioPlayer extends JCVideoPlayer {
         btn_clarity = (Button) findViewById(R.id.btn_clarity);
         btn_volume = (ImageButton) findViewById(R.id.btn_volume);
         seekbar_volume = (SeekBar) findViewById(R.id.seekbar_volume);
-
         ivBack.setOnClickListener(this);
         ivThumb.setOnClickListener(this);
 
@@ -221,10 +220,8 @@ public class PandaVedioPlayer extends JCVideoPlayer {
 
         } else if (i == R.id.btn_share) {
             //分享
-            Toast.makeText(getContext(), "点击了分享", Toast.LENGTH_SHORT).show();
-
-
-
+//            Toast.makeText(getContext(), "点击了分享", Toast.LENGTH_SHORT).show();
+            onClik.Fx();
 
         } else if (i == R.id.btn_clarity) {
             CheckClarity();
@@ -507,5 +504,22 @@ public class PandaVedioPlayer extends JCVideoPlayer {
 
     }
 
+
+
+    private JCOnClik onClik;
+
+    public  void setOnClik(JCOnClik onClik){
+
+        this.onClik = onClik;
+    }
+
     private String newurl = "http://2449.vod.myqcloud.com/2449_bfbbfa3cea8f11e5aac3db03cda99974.f20.mp4";
+
+
+    public interface JCOnClik{
+
+            void  Fx();
+            void Sc();
+    }
 }
+
