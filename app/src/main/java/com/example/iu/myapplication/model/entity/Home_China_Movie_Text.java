@@ -1,12 +1,13 @@
 package com.example.iu.myapplication.model.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/7/13.
  */
 
-public class Home_China_Movie_Text {
+public class Home_China_Movie_Text implements Serializable {
 
     private List<ListBean> list;
 
@@ -18,7 +19,7 @@ public class Home_China_Movie_Text {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable {
         /**
          * url : http://livechina.ipanda.com/2017/02/23/VIDE4c6LCDz662fn59Z2FnnT170223.shtml
          * image : http://p1.img.cctvpic.com/photoworkspace/2017/02/23/2017022316521539147.jpg

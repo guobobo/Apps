@@ -1,15 +1,13 @@
 package com.example.iu.myapplication.model.entity;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dell on 2017/7/12.
  */
 
-public class ChinaBean implements Parcelable {
+public class ChinaBean implements Serializable {
 
     private List<TablistBean> tablist;
     private List<AlllistBean> alllist;
@@ -30,7 +28,7 @@ public class ChinaBean implements Parcelable {
         this.alllist = alllist;
     }
 
-    public static class TablistBean implements Parcelable {
+    public static class TablistBean implements Serializable {
         /**
          * title : 八达岭
          * url : http://www.ipanda.com/kehuduan/liebiao/badaling/index.json
@@ -75,43 +73,9 @@ public class ChinaBean implements Parcelable {
             this.order = order;
         }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.title);
-            dest.writeString(this.url);
-            dest.writeString(this.type);
-            dest.writeString(this.order);
-        }
-
-        public TablistBean() {
-        }
-
-        protected TablistBean(Parcel in) {
-            this.title = in.readString();
-            this.url = in.readString();
-            this.type = in.readString();
-            this.order = in.readString();
-        }
-
-        public static final Parcelable.Creator<TablistBean> CREATOR = new Parcelable.Creator<TablistBean>() {
-            @Override
-            public TablistBean createFromParcel(Parcel source) {
-                return new TablistBean(source);
-            }
-
-            @Override
-            public TablistBean[] newArray(int size) {
-                return new TablistBean[size];
-            }
-        };
     }
 
-    public static class AlllistBean implements Parcelable {
+    public static class AlllistBean implements Serializable {
         /**
          * title : 凤凰古城
          * url : http://www.ipanda.com/kehuduan/liebiao/fenghuanggucheng/index.json
@@ -156,70 +120,6 @@ public class ChinaBean implements Parcelable {
             this.order = order;
         }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.title);
-            dest.writeString(this.url);
-            dest.writeString(this.type);
-            dest.writeString(this.order);
-        }
-
-        public AlllistBean() {
-        }
-
-        protected AlllistBean(Parcel in) {
-            this.title = in.readString();
-            this.url = in.readString();
-            this.type = in.readString();
-            this.order = in.readString();
-        }
-
-        public static final Parcelable.Creator<AlllistBean> CREATOR = new Parcelable.Creator<AlllistBean>() {
-            @Override
-            public AlllistBean createFromParcel(Parcel source) {
-                return new AlllistBean(source);
-            }
-
-            @Override
-            public AlllistBean[] newArray(int size) {
-                return new AlllistBean[size];
-            }
-        };
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedList(this.tablist);
-        dest.writeTypedList(this.alllist);
-    }
-
-    public ChinaBean() {
-    }
-
-    protected ChinaBean(Parcel in) {
-        this.tablist = in.createTypedArrayList(TablistBean.CREATOR);
-        this.alllist = in.createTypedArrayList(AlllistBean.CREATOR);
-    }
-
-    public static final Parcelable.Creator<ChinaBean> CREATOR = new Parcelable.Creator<ChinaBean>() {
-        @Override
-        public ChinaBean createFromParcel(Parcel source) {
-            return new ChinaBean(source);
-        }
-
-        @Override
-        public ChinaBean[] newArray(int size) {
-            return new ChinaBean[size];
-        }
-    };
 }

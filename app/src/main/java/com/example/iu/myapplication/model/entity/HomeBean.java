@@ -1,12 +1,13 @@
 package com.example.iu.myapplication.model.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dell on 2017/7/12.
  */
 
-public class HomeBean {
+public class HomeBean implements Serializable{
 
 
     /**
@@ -23,7 +24,7 @@ public class HomeBean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable {
         /**
          * area : {"id":"TITE1466833707511581","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/6/25/1466833706262_654.jpg","listh":[],"lists":[],"listscroll":[{"id":"TITE1497340387814143","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061213503191970.jpg","order":"1","pid":"d2a828ca5cd0400f82c2adee5581fc17","title":"搓澡的呢？小公主都要睡着了","url":"http://live.ipanda.com/2017/06/12/VIDEwHnBh4Rl0GZ5BeHFcnlR170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340370668838","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061213515212898.jpg","order":"2","pid":"74dbd954f97442caae35dbea65e4b501","title":"大小姐洗淋浴很嗨皮呀~","url":"http://live.ipanda.com/2017/06/12/VIDEguAcEVlICaxUDCmS6mTh170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340355909112","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061213532816597.jpg","order":"3","pid":"2c88d8ab3f08413abf47ee15215a73c6","title":"诶~地上怎么有张熊毯？","url":"http://live.ipanda.com/2017/06/12/VIDEuKbuTIAbPI3cRGLL8fVm170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340340613795","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061213541977693.jpg","order":"4","pid":"4e5f2826432f430e9a9a9f0b5220150c","title":"执着于击掌的\u201c乔伊\u201d","url":"http://live.ipanda.com/2017/06/12/VIDEfCoLHzFlCCxsLcmEvaQY170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340322923784","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061212034356894.jpg","order":"5","pid":"8993b935ed76403580f2dec9d7e69067","title":"牵着我的手就跟我走","url":"http://live.ipanda.com/2017/06/12/VIDEe64pZFCwVSNLANZOmlbZ170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340304941917","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061212014095023.jpg","order":"6","pid":"913d2d2f68e24ff8887d0b5f3e02c6e4","title":"麻麻叫我喝水了","url":"http://live.ipanda.com/2017/06/12/VIDEplbMpIAQy4AMipbveiCZ170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340290307892","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061212055645981.jpg","order":"7","pid":"43cb0d5d2bea4a09a6fae1b17df0b5a7","title":"找到了童年的快乐","url":"http://live.ipanda.com/2017/06/12/VIDEwwDKcjDbWMLitmy6J4Ij170612.shtml","vid":"","videoLength":""},{"id":"TITE1497340274435890","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061212090892550.jpg","order":"8","pid":"b0e802f9f82a4b1ca081c431efafecdb","title":"这就是大哥的气势","url":"http://live.ipanda.com/2017/06/12/VIDEyHgmIRSE50KzyFYcXRip170612.shtml","vid":"","videoLength":""},{"id":"TITE1497248741774236","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115364566463.jpg","order":"9","pid":"7e0144ce6bca40b7b09db46d1b6e214f","title":"干大事之前，要先活动活动筋骨","url":"http://live.ipanda.com/2017/06/11/VIDEROOLW6B5AE4WsZEcQu8m170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248728473228","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115374580988.jpg","order":"10","pid":"fb2e629ccfea4dabb5ee34e384173762","title":"妈妈我再也不闻了","url":"http://live.ipanda.com/2017/06/11/VIDEJ6q7y4OeUyd0oX4Hccel170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248714035210","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115393561904.jpg","order":"11","pid":"ff636a3f65f443d481684f26d45832d7","title":"为什么和爬树不一样呢？","url":"http://live.ipanda.com/2017/06/11/VIDEOYbjuHT7TQVO4UDAuaOW170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248698577141","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115352090104.jpg","order":"12","pid":"49dd431b27e7468d9ea601313774be8c","title":"大概啃的不是自己的熊腿吧！","url":"http://live.ipanda.com/2017/06/11/VIDED1Tb8Esbr4LReLKQXpIG170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248685728138","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115340478998.jpg","order":"13","pid":"86136528923a4cf79a464a6949732b86","title":"当着观众的面尿不好意思","url":"http://live.ipanda.com/2017/06/11/VIDEO8mOFbRju4xa8PWmavCo170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248670308911","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115323570330.jpg","order":"14","pid":"5c3c45202b054be28f7f8908b235dc36","title":"奶妈也爱抱抱举高高","url":"http://live.ipanda.com/2017/06/11/VIDECvRxKfRHGsMTWDj2usJj170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248653677977","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115310768995.jpg","order":"15","pid":"e949508804ef40a188f63c3fd439d180","title":"家有赖皮果果怎么办？","url":"http://live.ipanda.com/2017/06/11/VIDEPis1XOHLQ2hM2jvsqw2c170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248638876974","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/11/2017061115291547771.jpg","order":"16","pid":"68ab242c8ca84a34a7dfd7e58b346402","title":"小仙女拿着魔法棒去干嘛呢","url":"http://live.ipanda.com/2017/06/11/VIDEDlypINUgBE9xJUtVkzAF170611.shtml","vid":"","videoLength":""},{"id":"TITE1497248620784949","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/10/2017061015232844551.jpg","order":"17","pid":"381997f5c2714352be9cb6eefd3ffda6","title":"有奶妈来，你早不说！","url":"http://live.ipanda.com/2017/06/10/VIDEztyqCp38EROMHbkBEp0v170610.shtml","vid":"","videoLength":""},{"id":"TITE1497248606402926","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/10/2017061015273777472.jpg","order":"18","pid":"2c6a57735383472490fa52f1741f9388","title":"大小姐劈叉都和别熊不一样","url":"http://live.ipanda.com/2017/06/10/VIDEhR3PIw5EHlQC7TZNTsUE170610.shtml","vid":"","videoLength":""},{"id":"TITE1497248584935911","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/10/2017061015260521985.jpg","order":"19","pid":"a0279eda32644f8792a6395364a393c5","title":"熊家有仇都是当场就报了","url":"http://live.ipanda.com/2017/06/10/VIDEK6QAuFPQtYh5F5E3MRaS170610.shtml","vid":"","videoLength":""},{"id":"TITE1497248554089825","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/10/2017061015213737418.jpg","order":"20","pid":"723a2c632ca646568ca9509b169ee421","title":"看我的脚势：大写的拒绝！","url":"http://live.ipanda.com/2017/06/10/VIDEthsvK7pVVluQdkkUgMDA170610.shtml","vid":"","videoLength":""}],"title":"精彩推荐","topiclist":[],"url":""}
          * bigImg : [{"id":"TITE1497597714712290","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/16/1497597712866_826.jpg","order":"1","pid":"","stype":"","title":"","type":"6","url":"http://download.cntv.cn/app/ipanda/index.html","vid":""},{"id":"TITE1497402538379200","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/14/1497402674586_359.jpg","order":"2","pid":"1546f9d647844c16aa05dd3b7d4f0205","stype":"","title":"懒到站不起来的网红international顺儿","type":"2","url":"http://live.ipanda.com/2017/06/13/VIDE4DzM52me5XOdV84jSNXo170613.shtml","vid":""},{"id":"TITE1497402449569424","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/14/1497403046248_278.jpg","order":"3","pid":"58307e9c1754415a8103ad5148d3e42f","stype":"","title":"你的苹果得分我一半","type":"2","url":"http://live.ipanda.com/2017/06/13/VIDENRWEiaSlGci6PtCb2RnM170613.shtml","vid":""},{"id":"TITE1497402424277347","image":"http://p1.img.cctvpic.com/photoworkspace/2017/06/13/2017061315084422109.jpg","order":"4","pid":"c4a355b29be24ed68de5d295fc3ed014","stype":"","title":"真姐弟没毛病！","type":"2","url":"http://live.ipanda.com/2017/06/13/VIDE8oVaDT064TuXqDK2zYjj170613.shtml","vid":""}]
@@ -118,7 +119,7 @@ public class HomeBean {
             this.list = list;
         }
 
-        public static class AreaBean {
+        public static class AreaBean implements Serializable {
             /**
              * id : TITE1466833707511581
              * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/6/25/1466833706262_654.jpg
@@ -203,7 +204,7 @@ public class HomeBean {
                 this.topiclist = topiclist;
             }
 
-            public static class ListscrollBean {
+            public static class ListscrollBean  implements Serializable{
                 /**
                  * id : TITE1497340387814143
                  * image : http://p1.img.cctvpic.com/photoworkspace/2017/06/12/2017061213503191970.jpg
@@ -290,7 +291,7 @@ public class HomeBean {
             }
         }
 
-        public static class CctvBean {
+        public static class CctvBean implements Serializable {
             /**
              * listlive : []
              * listurl : http://www.ipanda.com/kehuduan/shipinliebieye/cctvshipindicengye/index.json
@@ -326,7 +327,7 @@ public class HomeBean {
             }
         }
 
-        public static class ChinaliveBean {
+        public static class ChinaliveBean implements Serializable {
             /**
              * list : [{"id":"zjjmht","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/9/19/1474274866009_775.jpg","order":"1","title":"【直播】张家界","url":"","vid":"http://livechina.ipanda.com/zhangjiajie/01/index.shtml"},{"id":"fhgcdgm","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/9/19/1474274669741_123.jpg","order":"2","title":"【直播】凤凰古城","url":"","vid":"http://livechina.ipanda.com/fenghuang/01/index.shtml"},{"id":"ztd","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/5/19/1463646740047_989.jpg","order":"3","title":"【直播】中央电视塔","url":"","vid":"http://livechina.ipanda.com/zhongta/02/index.shtml"},{"id":"hsxksqj","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/5/19/1463646628905_109.jpg","order":"4","title":"【直播】悬空寺","url":"","vid":"http://livechina.ipanda.com/hengshan/01/index.shtml"},{"id":"hgsljtgpt","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/5/19/1463646593298_50.jpg","order":"5","title":"【直播】黄果树","url":"","vid":"http://livechina.ipanda.com/huangguoshu/02/index.shtml"},{"id":"hlwxt","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/5/19/1463646137373_456.jpg","order":"6","title":"【直播】黄龙","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/huanglong/index.json"},{"id":"taishan01","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/19/1453182053209_224.jpg","order":"7","title":"【直播】泰山","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/PAGE1451288906969388/index.json"},{"id":"hssxf","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/19/1453182136725_375.jpg","order":"8","title":"【直播】黄山","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/huangshan/index.json"},{"id":"emsarm","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/19/1453182395917_608.jpg","order":"9","title":"【直播】峨眉山","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/emeishan/index.json"}]
              * title : 直播中国
@@ -351,7 +352,7 @@ public class HomeBean {
                 this.list = list;
             }
 
-            public static class ListBean {
+            public static class ListBean implements Serializable {
                 /**
                  * id : zjjmht
                  * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/9/19/1474274866009_775.jpg
@@ -418,7 +419,7 @@ public class HomeBean {
             }
         }
 
-        public static class InteractiveBean {
+        public static class InteractiveBean implements Serializable {
             /**
              * interactiveone : [{"image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/5/1496626317442_981.jpg","order":"1","title":"二十四节气\u2014\u2014芒种","type":"","url":"http://webapp.cctv.com/h5/travel/U80531QU7SY7.html","vid":""}]
              * interactivetwo : []
@@ -453,7 +454,7 @@ public class HomeBean {
                 this.interactivetwo = interactivetwo;
             }
 
-            public static class InteractiveoneBean {
+            public static class InteractiveoneBean implements Serializable {
                 /**
                  * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/5/1496626317442_981.jpg
                  * order : 1
@@ -520,7 +521,7 @@ public class HomeBean {
             }
         }
 
-        public static class PandaeyeBean {
+        public static class PandaeyeBean implements Serializable {
             /**
              * items : [{"bgcolor":"#ff0a5a","brief":"新生","id":"TITE1497403113884217","order":"1","pid":"26097f927eb34babad51340659d08fe1","title":"东北虎五胞胎取名谐音为\u201c东北欢迎你\u201d","url":"http://panview.ipanda.com/2017/06/14/VIDEQ2MhA0Ejp9OgTUcZXJV0170614.shtml","vid":""},{"bgcolor":"#ff0a5a","brief":"趣闻","id":"TITE1497403079074598","order":"2","pid":"3adc37e20dea44a9be56433d80234fa7","title":"萌娃\u201c越狱\u201d 哥哥助弟弟下床","url":"http://panview.ipanda.com/2017/06/14/VIDEDitkvohE2rnEJQlg1opd170614.shtml","vid":""}]
              * pandaeyelist : http://www.ipanda.com/kehuduan/shipinliebieye/xiongmaoguancha/index.json
@@ -565,7 +566,7 @@ public class HomeBean {
                 this.items = items;
             }
 
-            public static class ItemsBean {
+            public static class ItemsBean implements Serializable {
                 /**
                  * bgcolor : #ff0a5a
                  * brief : 新生
@@ -652,7 +653,7 @@ public class HomeBean {
             }
         }
 
-        public static class PandaliveBean {
+        public static class PandaliveBean implements Serializable {
             /**
              * list : [{"id":"ipanda","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/14/1452765186225_780.jpg","order":"1","title":"成都基地高清精切线路","url":"","vid":"http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE1450178789681331211/index.json"},{"id":"xiongmao07","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/14/1452765209983_511.jpg","order":"2","title":"成都直播：熊猫母子园","url":"","vid":"http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE1450178789681331211/index.json"},{"id":"xiongmao09","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/14/1452765227283_786.jpg","order":"3","title":"成都直播：熊猫一号别墅","url":"","vid":"http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE1450178789681331211/index.json"},{"id":"xiongmao11","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/4/1/1491013180946_553.jpg","order":"4","title":"卧龙直播：熊猫\u201c宝宝\u201d","url":"","vid":"http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE145017878968133121/index.json"},{"id":"xiongmao12","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/14/1452765258608_842.jpg","order":"5","title":"卧龙直播：熊猫\u201c青青\u201d","url":"","vid":"http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE145017878968133121/index.json"},{"id":"xiongmao18","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/6/1/1464765552815_663.jpg","order":"6","title":"雅安基地幼儿园","url":"","vid":"http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE145017878968133121/index.json"}]
              * title : 熊猫直播
@@ -677,7 +678,7 @@ public class HomeBean {
                 this.list = list;
             }
 
-            public static class ListBeanX {
+            public static class ListBeanX implements Serializable {
                 /**
                  * id : ipanda
                  * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/14/1452765186225_780.jpg
@@ -744,7 +745,7 @@ public class HomeBean {
             }
         }
 
-        public static class WallliveBean {
+        public static class WallliveBean implements Serializable {
             /**
              * list : [{"id":"bgws4","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453447161326_398.jpg","order":"1","title":"八达岭长城南四楼","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/badaling/index.json"},{"id":"bgwn10","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453449429822_667.jpg","order":"2","title":"八达岭长城北十楼","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/badaling/index.json"},{"id":"wgw05","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453449966410_700.jpg","order":"3","title":"山海关长城镜头一","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/shanhaiguan/index.json"},{"id":"wgw06","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453450730912_656.jpg","order":"4","title":"山海关长城镜头二","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/shanhaiguan/index.json"},{"id":"wgw01","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453451106626_148.jpg","order":"5","title":"水长城","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/PAGEtcPWwRQbFtXAc5XV95lh160119/index.json"},{"id":"jyg03","image":"http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453451567952_933.jpg","order":"6","title":"嘉峪关","url":"","vid":"http://www.ipanda.com/kehuduan/liebiao/PAGEcA8N14784Rzm35Q4Ppx1160119/index.json"}]
              * title : 长城直播
@@ -769,7 +770,7 @@ public class HomeBean {
                 this.list = list;
             }
 
-            public static class ListBeanXX {
+            public static class ListBeanXX implements Serializable {
                 /**
                  * id : bgws4
                  * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2016/1/22/1453447161326_398.jpg
@@ -836,7 +837,7 @@ public class HomeBean {
             }
         }
 
-        public static class BigImgBean {
+        public static class BigImgBean implements Serializable {
             /**
              * id : TITE1497597714712290
              * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/16/1497597712866_826.jpg
@@ -932,7 +933,7 @@ public class HomeBean {
             }
         }
 
-        public static class ListBeanXXX {
+        public static class ListBeanXXX implements Serializable {
             /**
              * listUrl : http://www.ipanda.com/kehuduan/shipinliebieye/guangyingzhongguo/index.json
              * order : 1

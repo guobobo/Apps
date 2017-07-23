@@ -9,11 +9,44 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/x200"
-            android:layout_height="@dimen/y160"
-            android:src="@drawable/_no_collect"
-            android:id="@+id/live_recy_image"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y160"
+                android:src="@drawable/_no_collect"
+                android:id="@+id/live_recy_image"/>
+
+            <ImageView
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y100"
+               android:layout_alignBottom="@id/live_recy_image"
+                android:src="@drawable/lpanda_bottom_gra"/>
+
+            <ImageView
+                android:id="@+id/gzz_img1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lpanda_live_layer"
+                android:layout_marginTop="@dimen/y100">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live"
+                android:textColor="#fff"
+                android:layout_toRightOf="@id/gzz_img1"
+                android:layout_marginTop="@dimen/y95"
+                android:layout_marginLeft="@dimen/x20"
+                />
+
+
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/live_recy_text"
             android:layout_marginTop="@dimen/y20"

@@ -2,6 +2,7 @@ package com.example.iu.myapplication.model.biz.home;
 
 import com.example.iu.myapplication.base.BaseModel;
 import com.example.iu.myapplication.model.entity.HomeBean;
+import com.example.iu.myapplication.model.entity.UpdateBean;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 
 /**
@@ -11,5 +12,6 @@ import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 public interface HomeModel extends BaseModel {
 
     void getHomeDate(MyNetWorkCallBack<HomeBean> callBack);
+    void version(MyNetWorkCallBack<UpdateBean> callBack);
 
 }

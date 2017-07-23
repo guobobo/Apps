@@ -1,13 +1,10 @@
 package com.example.iu.myapplication.model.entity;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-public class ChinaListBean implements Parcelable {
+public class ChinaListBean implements Serializable {
 
     private List<LiveBean> live;
 
@@ -19,7 +16,7 @@ public class ChinaListBean implements Parcelable {
         this.live = live;
     }
 
-    public static class LiveBean implements Parcelable {
+    public static class LiveBean implements Serializable {
         /**
          * title : 八达岭南四楼
          * brief : 八达岭长城位于北京市西北六十公里处，被评为中国旅游胜地四十家之首和北京旅游“世界之最”。因其机构严谨科学，虽经历五百多年的历史风烟，至今仍巍然屹立，足以说明古代汉族劳动人民在建筑科学和艺术上的卓越才能。
@@ -74,71 +71,6 @@ public class ChinaListBean implements Parcelable {
             this.order = order;
         }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.title);
-            dest.writeString(this.brief);
-            dest.writeString(this.image);
-            dest.writeString(this.id);
-            dest.writeString(this.order);
-        }
-
-        public LiveBean() {
-        }
-
-        protected LiveBean(Parcel in) {
-            this.title = in.readString();
-            this.brief = in.readString();
-            this.image = in.readString();
-            this.id = in.readString();
-            this.order = in.readString();
-        }
-
-        public static final Creator<LiveBean> CREATOR = new Creator<LiveBean>() {
-            @Override
-            public LiveBean createFromParcel(Parcel source) {
-                return new LiveBean(source);
-            }
-
-            @Override
-            public LiveBean[] newArray(int size) {
-                return new LiveBean[size];
-            }
-        };
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.live);
-    }
-
-    public ChinaListBean() {
-    }
-
-    protected ChinaListBean(Parcel in) {
-        this.live = new ArrayList<LiveBean>();
-        in.readList(this.live, LiveBean.class.getClassLoader());
-    }
-
-    public static final Parcelable.Creator<ChinaListBean> CREATOR = new Parcelable.Creator<ChinaListBean>() {
-        @Override
-        public ChinaListBean createFromParcel(Parcel source) {
-            return new ChinaListBean(source);
-        }
-
-        @Override
-        public ChinaListBean[] newArray(int size) {
-            return new ChinaListBean[size];
-        }
-    };
 }

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login_success"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0f0f0f0f"
+    tools:context="com.example.iu.myapplication.LoginSuccessActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y120"
+        android:orientation="horizontal"
+        android:background="@color/colorBlue">
+
+
+        <ImageView
+            android:id="@+id/login_success_backImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/personal_back_img"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="个人信息"
+            android:layout_marginLeft="@dimen/x215"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y150"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:id="@+id/linear_loginsuccess_tuoxiang"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlank"
+            android:text="头像"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x30"/>
+
+        <ImageView
+            android:id="@+id/avatarImage_loginsuccess"
+            android:layout_width="@dimen/x140"
+            android:layout_height="@dimen/y100"
+            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginLeft="@dimen/x350"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x30"
+            android:src="@drawable/personal_enter_img"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_loginsuccess_nicheng"
+        android:layout_width="@dimen/x670"
+        android:layout_height="@dimen/y150"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/colorWhite"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlank"
+            android:text="昵称"
+            android:layout_marginTop="@dimen/y60"
+            android:layout_marginLeft="@dimen/x30"/>
+
+        <TextView
+            android:id="@+id/mNickname_loginsuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这是我的昵称"
+            android:textColor="@color/colorBlank"
+            android:layout_marginTop="@dimen/y60"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x80"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/y50"
+            android:layout_marginRight="@dimen/x30"
+            android:src="@drawable/personal_enter_img"/>
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/Btn_loginsuccess"
+        android:layout_width="@dimen/x670"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_bule_round"
+        android:textColor="@color/colorWhite"
+        android:text="退出登录"
+        android:layout_marginTop="@dimen/y400"/>
+
+</LinearLayout>

@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -74,7 +74,9 @@
 
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".module.home.Ativity.InteractiveActivity" />
-        <activity android:name=".module.home.Ativity.InteractivewebActivity" />
+        <activity
+            android:name=".module.pandaculture.activity.CultureSpActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".module.pandaculture.activity.CultureWebActivity" />
         <activity
             android:name=".module.pandabroadcast.activity.BroadcastSpActivity"
@@ -87,8 +89,7 @@
         <activity android:name=".SetActivity" />
         <activity android:name=".RegisteredActivity" />
         <activity android:name=".ForgetActivity" />
-        <activity android:name=".module.pandaculture.activity.CultureSpActivity"></activity>
-
+        <activity android:name=".LoginSuccessActivity"></activity>
     </application>
 
 </manifest>

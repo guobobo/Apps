@@ -1,21 +1,44 @@
 package com.example.iu.myapplication.module.home;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.iu.myapplication.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
+import com.example.iu.myapplication.config.ACache;
+import com.example.iu.myapplication.config.LogUtils;
+import com.example.iu.myapplication.customize.HistoryUtils;
 import com.example.iu.myapplication.model.entity.HomeBean;
 import com.example.iu.myapplication.model.entity.Home_CCTV_Bean;
 import com.example.iu.myapplication.model.entity.Home_China_Movie_Text;
 import com.example.iu.myapplication.model.entity.Look_Down_Text;
+import com.example.iu.myapplication.model.entity.UpdateBean;
 import com.example.iu.myapplication.module.home.adapter.HomeFragmentAdapter;
+import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastSpActivity;
 import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastWebActivity;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.umeng.analytics.MobclickAgent;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -30,10 +53,12 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     XRecyclerView homeXrecy;
     private ArrayList<Object> home_data_object = new ArrayList<>();
     private ArrayList<HomeBean.DataBean> list = new ArrayList<HomeBean.DataBean>();
-
+    private static int versionCode;
     private HomeContarct.Presenter presenter;
     private HomeFragmentAdapter adapter;
-
+    private String versionsUrl;
+    private AlertDialog alertDialog;
+    private  int total = 0;
     @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
@@ -42,6 +67,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     @Override
     public void initView(View view) {
 
+        initData();
+        getVersion();
         homeXrecy.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -107,6 +134,11 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     @Override
     public void setMessage(String msg) {
+        ACache aCache = ACache.get(App.context);
+        HomeBean homeBean = (HomeBean) aCache.getAsObject("HomeBean");
+        if(homeBean!=null){
+            list.add(homeBean.getData());
+        }
     }
 
     @Override
@@ -134,38 +166,67 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         getActivity().startActivity(intent);
     }
 
+    //精彩推荐的监听
     @Override
     public void get_wonderful_Click(HomeBean.DataBean.AreaBean.ListscrollBean home_data) {
 
-        String url = home_data.getUrl();
+        String pid = home_data.getPid();
+        String title = home_data.getTitle();
+        String image = home_data.getImage();
+        String videoLength = home_data.getVideoLength();
 
-        Toast.makeText(getActivity(), "精彩视频的地址："+url, Toast.LENGTH_SHORT).show();
+        HistoryUtils.getInstance(getActivity()).instert(title,image,videoLength);
+
+        thisTovideo(title,image,videoLength,pid);
     }
 
     @Override
     public void get_pandan_loog_Click(View look_view, HomeBean.DataBean.PandaeyeBean.ItemsBean itemsBean) {
 
-        String url = itemsBean.getUrl();
+        String pid = itemsBean.getPid();
+        String title = itemsBean.getTitle();
 
-        Toast.makeText(getActivity(), "熊猫观察新生的地址："+url, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(),BroadcastSpActivity.class);
+
+        intent.putExtra("id",pid);
+        intent.putExtra("title",title);
+
+        //HistoryUtils.getInstance(getActivity()).instert();
+
+        getActivity().startActivity(intent);
 
     }
 
     @Override
     public void get_pandan_loog_second_Click(View look_view, HomeBean.DataBean.PandaeyeBean.ItemsBean second_itemsBean) {
 
-        String url = second_itemsBean.getUrl();
+        String pid = second_itemsBean.getPid();
+        String title = second_itemsBean.getTitle();
 
-        Toast.makeText(getActivity(), "熊猫观察趣闻的地址："+url, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(),BroadcastSpActivity.class);
+
+        intent.putExtra("id",pid);
+        intent.putExtra("title",title);
+
+
+        getActivity().startActivity(intent);
 
     }
 
     @Override
     public void get_pandan_look_down_Click(Look_Down_Text.ListBean look_down_text) {
 
-        String url = look_down_text.getUrl();
-        Toast.makeText(getActivity(), "熊猫观察列表的地址："+url, Toast.LENGTH_SHORT).show();
+        String pid = look_down_text.getPid();
 
+        String videoLength = look_down_text.getVideoLength();
+
+        String image = look_down_text.getImage();
+
+        String title = look_down_text.getTitle();
+
+        HistoryUtils.getInstance(getActivity()).instert(title,image,videoLength);
+
+       thisTovideo(title,image,videoLength,pid);
     }
 
     @Override
@@ -201,5 +262,205 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     @Override
     public void get_movie_live_Click(Home_China_Movie_Text.ListBean listBean) {
 
+        String pid = listBean.getPid();
+
+        Date date=new Date();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+        String format = sdf.format(date);
+
+        String title = listBean.getTitle();
+
+        String videoLength = listBean.getVideoLength();
+
+        String image = listBean.getImage();
+
+        HistoryUtils.getInstance(getActivity()).instert(title,image,videoLength);
+
+        thisTovideo(title,image,videoLength,pid);
+
     }
+
+    private void thisTovideo(String title , String image , String videoLength ,String pid){
+
+        Intent intent = new Intent(getActivity(), BroadcastSpActivity.class);
+
+        intent.putExtra("title",title);
+
+        intent.putExtra("image",image);
+
+        intent.putExtra("duration",videoLength);
+
+        intent.putExtra("id",pid);
+
+        getActivity().startActivity(intent);
+
+    }
+
+    //获取当前版本
+    protected void initData() {
+        getAppVersionName(getActivity());
+    }
+
+    public static String getAppVersionName(Context context) {
+        String versionName = "";
+
+        try {
+            // ---get the package info---
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            versionName = pi.versionName;
+            //versioncode = pi.versionCode;
+            versionCode = pi.versionCode;
+            LogUtils.MyLog("aaa", versionCode + "");
+            if (versionName == null || versionName.length() <= 0) {
+                return "";
+            }
+        } catch (Exception e) {
+            LogUtils.MyLog("aaa", versionName);
+        }
+        return versionName;
+
+    }
+
+    //发送网络请求获取最新版本号
+    public void getVersion() {
+        presenter.getversion();
+    }
+
+    @Override
+    public void getVersion(UpdateBean updateBean) {
+        String versionsNum = updateBean.getData().getVersionsNum();
+        versionsUrl = updateBean.getData().getVersionsUrl();
+        int versionsInt = Integer.parseInt(versionsNum);
+        if (versionCode < versionsInt) {
+            showDialogUpdate();
+        } else {
+            Toast.makeText(getActivity(), "已经是最新版本", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    /**
+     * 提示版本更新的对话框
+     */
+    private void showDialogUpdate() {
+        // 这里的属性可以一直设置，因为每次设置后返回的是一个builder对象
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        // 设置提示框的标题
+        builder.setTitle("版本升级").
+                // 设置要显示的信息
+                        setMessage("发现新版本  修复了已知的BUG").
+                // 设置确定按钮
+                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Toast.makeText(MainActivity.this, "选择确定哦", 0).show();
+                        dialog.dismiss();
+                        loadNewVersionProgress();//下载最新的版本程序
+
+                    }
+                }).
+
+                // 设置取消按钮,null是什么都不做，并关闭对话框
+                        setNegativeButton("取消", null);
+
+        // 生产对话框
+        alertDialog = builder.create();
+        // 显示对话框
+        alertDialog.show();
+
+
+    }
+
+    /**
+     * 下载新版本程序，需要子线程
+     */
+    private void loadNewVersionProgress() {
+        final String uri = versionsUrl;
+        final ProgressDialog pd;    //进度条对话框
+        pd = new ProgressDialog(getActivity());
+        pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        pd.setMessage("正在下载更新");
+        pd.show();
+        //启动子线程下载任务
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    File file = getFileFromServer(uri, pd);
+                    sleep(3000);
+                    installApk(file);
+                    pd.dismiss(); //结束掉进度条对话框
+                } catch (Exception e) {
+                    //下载apk失败
+                    LogUtils.MyLog("abc", "下载失败");
+//                    Toast.makeText(getActivity(), "下载新版本失败", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    /**
+     * 从服务器获取apk文件的代码
+     * 传入网址uri，进度条对象即可获得一个File文件
+     * （要在子线程中执行哦）
+     */
+    public File getFileFromServer(String uri, final ProgressDialog pd) throws Exception {
+        //如果相等的话表示当前的sdcard挂载在手机上并且是可用的
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            URL url = new URL(uri);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(5000);
+            //获取到文件的大小
+            InputStream is = conn.getInputStream();
+            long time = System.currentTimeMillis();//当前时间的毫秒数
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), time + "updata.apk");
+            if (!file.exists())
+                file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            BufferedInputStream bis = new BufferedInputStream(is);
+            byte[] buffer = new byte[1024];
+            int len;
+
+            while ((len = bis.read(buffer)) != -1) {
+                fos.write(buffer, 0, len);
+                total += len;
+            }
+            fos.close();
+            bis.close();
+            is.close();
+            return file;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 安装apk
+     */
+    protected void installApk(File file) {
+        Intent intent = new Intent();
+        //执行动作
+        intent.setAction(Intent.ACTION_VIEW);
+        //执行的数据类型
+        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+        startActivity(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getActivity());
+        MobclickAgent.onPageStart("HomeFragment");//统计时长
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getActivity());
+        MobclickAgent.onPageStart("HomeFragment");
+    }
+
 }

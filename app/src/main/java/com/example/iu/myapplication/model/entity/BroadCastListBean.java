@@ -3,13 +3,14 @@ package com.example.iu.myapplication.model.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by iu on 2017/7/17.
  */
 
-public class BroadCastListBean {
+public class BroadCastListBean implements Serializable {
 
 
     /**
@@ -36,7 +37,7 @@ public class BroadCastListBean {
         this.list = list;
     }
 
-    public static class ListBean implements Parcelable {
+    public static class ListBean implements Serializable {
         /**
          * num : 1
          * datatype : video
@@ -151,25 +152,6 @@ public class BroadCastListBean {
             this.focus_date = focus_date;
         }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeInt(this.num);
-            dest.writeString(this.datatype);
-            dest.writeString(this.id);
-            dest.writeString(this.title);
-            dest.writeString(this.videolength);
-            dest.writeString(this.guid);
-            dest.writeString(this.picurl);
-            dest.writeString(this.picurl2);
-            dest.writeString(this.picurl3);
-            dest.writeString(this.url);
-            dest.writeLong(this.focus_date);
-        }
 
         public ListBean() {
         }

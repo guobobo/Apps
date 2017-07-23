@@ -1,10 +1,12 @@
 package com.example.iu.myapplication.net;
 
 import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.config.ACache;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -186,7 +188,8 @@ public class OkhttpUtils implements IHttp{
 
         T t = gson.fromJson(jsonDate, typeArgument);
 
-
+        ACache aCache = ACache.get(App.context);
+        aCache.put(t.getClass().getSimpleName(), (Serializable) t);
         return t;
     }
 }

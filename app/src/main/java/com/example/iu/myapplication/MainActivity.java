@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.module.chinalive.ChinaFragment;
 import com.example.iu.myapplication.module.chinalive.ChinaPresenter;
+import com.example.iu.myapplication.module.home.Ativity.InteractiveActivity;
 import com.example.iu.myapplication.module.home.HomeFragment;
 import com.example.iu.myapplication.module.home.HomePresenter;
 import com.example.iu.myapplication.module.pandabroadcast.BroadcastFragment;
@@ -24,6 +25,7 @@ import com.example.iu.myapplication.module.pandaculture.CultureFragment;
 import com.example.iu.myapplication.module.pandaculture.CulturePresenter;
 import com.example.iu.myapplication.module.pandalive.LiveFragment;
 import com.example.iu.myapplication.module.pandalive.LivePresenter;
+import com.umeng.analytics.MobclickAgent;
 
 
 import java.util.Timer;
@@ -58,7 +60,7 @@ public class MainActivity extends BaseActivity {
     LinearLayout linear;
     @Bind(R.id.main_viewpager)
     FrameLayout mainViewpager;
-
+    //tab_image1
     private HomeFragment homeFragment;
     private LiveFragment liveFragment;
     private CultureFragment cultureFragment;
@@ -75,11 +77,13 @@ public class MainActivity extends BaseActivity {
                     linearimage.setVisibility(View.GONE);
                     linear.setVisibility(View.VISIBLE);
                     login(tabUser);
+                    interactive(tabImage1);
                     timer.cancel();
                     break;
             }
         }
     };
+
 
     @Override
     public int getLayoutId() {
@@ -104,6 +108,9 @@ public class MainActivity extends BaseActivity {
         thread.start();
         //初始首页页面
         Setinitial();
+
+        //创建历史记录数据库
+        createHistoryDao();
     }
 
     @OnClick({R.id.main_home, R.id.main_Pandalive, R.id.main_Rollingvideo, R.id.main_Pandabroadcast, R.id.main_liveCN})
@@ -221,6 +228,7 @@ public class MainActivity extends BaseActivity {
         transaction.commit();
     }
 
+    //跳转到登录的页面
     private void login(ImageView imageView){
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -229,8 +237,38 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this,PersonalActivity.class));
             }
         });
+    }
+
+    //跳转到原创互动的页面
+    private void interactive(ImageView imageView) {
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,InteractiveActivity.class));
+            }
+        });
+
+    }
+
+    //创建数据库的方法
+    private void createHistoryDao() {
 
 
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+        MobclickAgent.onPageStart("MainActivity");//统计时长
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+        MobclickAgent.onPageEnd("MainActivity");
     }
 
 }

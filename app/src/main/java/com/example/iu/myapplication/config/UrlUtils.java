@@ -36,9 +36,10 @@ public class UrlUtils {
     //原创互动接口
     public static final String INTERACTIVE = BaseURL+"PAGE14501767715521482/index.json";
 
-
     //视频播放  http://115.182.9.189/api/getVideoInfoForCBox.do
 
     public static final String VIDEO = "http://115.182.9.189/api/getVideoInfoForCBox.do?pid=";
 
+    //版本更新
+    public static final String UPDATE_URL = "http://115.182.9.124/index.php?action=release-GetNewVersions&applyName=1426217325";
 }

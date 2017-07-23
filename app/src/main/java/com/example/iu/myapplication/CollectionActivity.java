@@ -29,7 +29,7 @@ public class CollectionActivity extends BaseActivity {
     @Override
     public void initView() {
         ArrayList<Fragment> list = new ArrayList<>();
-        String[] str  = {"直播","精彩看点"};
+        String[] str  = {"精彩看点","直播"};
         CollectionAreaFragment areaFragment = new CollectionAreaFragment();
         CollectionLiveFragment liveFragment = new CollectionLiveFragment();
 

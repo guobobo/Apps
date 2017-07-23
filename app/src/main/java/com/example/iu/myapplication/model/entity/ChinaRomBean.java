@@ -1,10 +1,9 @@
 package com.example.iu.myapplication.model.entity;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.io.Serializable;
 
-public class ChinaRomBean implements Parcelable {
+public class ChinaRomBean implements Serializable {
     private String title;
     private String url;
     private String type;
@@ -48,36 +47,4 @@ public class ChinaRomBean implements Parcelable {
     public void setOrder(String order) {
         this.order = order;
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.title);
-        dest.writeString(this.url);
-        dest.writeString(this.type);
-        dest.writeString(this.order);
-    }
-
-    protected ChinaRomBean(Parcel in) {
-        this.title = in.readString();
-        this.url = in.readString();
-        this.type = in.readString();
-        this.order = in.readString();
-    }
-
-    public static final Parcelable.Creator<ChinaRomBean> CREATOR = new Parcelable.Creator<ChinaRomBean>() {
-        @Override
-        public ChinaRomBean createFromParcel(Parcel source) {
-            return new ChinaRomBean(source);
-        }
-
-        @Override
-        public ChinaRomBean[] newArray(int size) {
-            return new ChinaRomBean[size];
-        }
-    };
 }

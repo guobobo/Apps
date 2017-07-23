@@ -449,7 +449,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
             case movie_china_type:
                 final Movie_china_viewHolder chian_viewholder = (Movie_china_viewHolder) holder;
-////     设置供应中国的  数据
+////     设置光影中国的  数据
 
                 HomeBean.DataBean.ListBeanXXX listBeanXXX = (HomeBean.DataBean.ListBeanXXX) o;
 
@@ -469,6 +469,13 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                                 Home_Light_Adapter home_light_adapter = new Home_Light_Adapter(movie_Array, context);
 
                                 chian_viewholder.china_movie_list.setAdapter(home_light_adapter);
+
+                                chian_viewholder.china_movie_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        recy_onclick.get_movie_live_Click(movie_Array.get(position));
+                                    }
+                                });
                             }
                         });
 
@@ -616,6 +623,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
             Glide.with(context).load(home_data.get(0).getBigImg().get(i).getImage()).into(imag);
             rotation_array.add(page_item);
             final int finalI = i;
+            //轮播图图片的监听
             imag.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

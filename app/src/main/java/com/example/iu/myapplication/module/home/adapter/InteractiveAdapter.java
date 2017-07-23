@@ -23,19 +23,24 @@ public class InteractiveAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<InteractivesBean.InteractiveBean> list;
     private MyHolder myHolder;
+    private MyOnClickListener listener;
+
+    public void setListener(MyOnClickListener listener){
+
+        this.listener = listener;
+    }
 
 
-    public InteractiveAdapter(Context context, ArrayList<InteractivesBean.InteractiveBean> list, MyHolder myHolder) {
+    public InteractiveAdapter(Context context, ArrayList<InteractivesBean.InteractiveBean> list) {
         this.context = context;
         this.list = list;
-        this.myHolder = myHolder;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.interactive_r_item, null);
 
-        myHolder = new MyHolder(inflate);
+        myHolder = new MyHolder(inflate , listener);
         return myHolder;
     }
 
@@ -56,13 +61,27 @@ public class InteractiveAdapter extends RecyclerView.Adapter {
 
         private final ImageView img;
         private final TextView tv1;
+        private MyOnClickListener listener;
 
-        public MyHolder(View itemView) {
+        public MyHolder(View itemView , final MyOnClickListener listener) {
             super(itemView);
+            this.listener = listener;
             img = (ImageView) itemView.findViewById(R.id.interactive_r_item_img);
             tv1 = (TextView) itemView.findViewById(R.id.interactive_r_item_tv1);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.setOnClick(getAdapterPosition());
+                }
+            });
         }
     }
 
+
+    public interface MyOnClickListener{
+
+        void setOnClick(int pos);
+    }
 
 }

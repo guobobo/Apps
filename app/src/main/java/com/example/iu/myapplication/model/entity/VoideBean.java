@@ -2,13 +2,14 @@ package com.example.iu.myapplication.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by iu on 2017/7/20.
  */
 
-public class VoideBean {
+public class VoideBean  implements Serializable {
 
 
     /**
@@ -276,7 +277,7 @@ public class VoideBean {
         this.video = video;
     }
 
-    public static class CdnInfoBean {
+    public static class CdnInfoBean implements Serializable {
         /**
          * cdn_code : VOD-MP4-CDN-QQ
          * cdn_name : 3rd腾讯云
@@ -312,7 +313,7 @@ public class VoideBean {
         }
     }
 
-    public static class HlsCdnInfoBean {
+    public static class HlsCdnInfoBean implements Serializable {
         /**
          * cdn_code : VOD-HLS-CDN-CNC
          * cdn_name : 3rd网宿
@@ -348,7 +349,7 @@ public class VoideBean {
         }
     }
 
-    public static class LcBean {
+    public static class LcBean  implements Serializable{
         /**
          * city_code :
          * country_code : CN
@@ -404,7 +405,7 @@ public class VoideBean {
         }
     }
 
-    public static class VideoBean {
+    public static class VideoBean implements Serializable {
         /**
          * chapters : [{"duration":"298","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264418000nero_aac32-1.mp4"},{"duration":"300","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264418000nero_aac32-2.mp4"},{"duration":"9","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264418000nero_aac32-3.mp4"}]
          * chapters2 : [{"duration":"180","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264818000nero_aac32-1.mp4"},{"duration":"178","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264818000nero_aac32-2.mp4"},{"duration":"180","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264818000nero_aac32-3.mp4"},{"duration":"68","image":"http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg","url":"http://cntv.vod.cdn.myqcloud.com/flash/mp4video55/TMS/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4_h264818000nero_aac32-4.mp4"}]
@@ -489,7 +490,7 @@ public class VoideBean {
             this.lowChapters = lowChapters;
         }
 
-        public static class ChaptersBean {
+        public static class ChaptersBean implements Serializable {
             /**
              * duration : 298
              * image : http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg
@@ -525,7 +526,7 @@ public class VoideBean {
             }
         }
 
-        public static class Chapters2Bean {
+        public static class Chapters2Bean implements Serializable {
             /**
              * duration : 180
              * image : http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg
@@ -561,7 +562,7 @@ public class VoideBean {
             }
         }
 
-        public static class Chapters3Bean {
+        public static class Chapters3Bean implements Serializable {
             /**
              * duration : 119
              * image : http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg
@@ -597,7 +598,7 @@ public class VoideBean {
             }
         }
 
-        public static class Chapters4Bean {
+        public static class Chapters4Bean implements Serializable {
             /**
              * duration : 119
              * image : http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg
@@ -633,7 +634,7 @@ public class VoideBean {
             }
         }
 
-        public static class LowChaptersBean {
+        public static class LowChaptersBean implements Serializable {
             /**
              * duration : 598
              * image : http://p1.img.cctvpic.com/fmspic/2016/10/14/2245134907bf4ac9b3b4abcc1022bbe4-310.jpg

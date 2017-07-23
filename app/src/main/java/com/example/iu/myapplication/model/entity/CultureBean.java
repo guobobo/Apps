@@ -1,15 +1,13 @@
 package com.example.iu.myapplication.model.entity;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dell on 2017/7/12.
  */
 
-public class CultureBean {
+public class CultureBean implements Serializable{
 
     private List<BigImgBean> bigImg;
     private List<ListBean> list;
@@ -30,7 +28,7 @@ public class CultureBean {
         this.list = list;
     }
 
-    public static class BigImgBean implements Parcelable {
+    public static class BigImgBean implements Serializable{
         /**
          * id : ARTILBLSMq3qlVgygrUMJEG2170523
          * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/5/23/1495533604076_403.jpg
@@ -125,53 +123,9 @@ public class CultureBean {
             this.vid = vid;
         }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.id);
-            dest.writeString(this.image);
-            dest.writeString(this.order);
-            dest.writeString(this.pid);
-            dest.writeString(this.stype);
-            dest.writeString(this.title);
-            dest.writeString(this.type);
-            dest.writeString(this.url);
-            dest.writeString(this.vid);
-        }
-
-        public BigImgBean() {
-        }
-
-        protected BigImgBean(Parcel in) {
-            this.id = in.readString();
-            this.image = in.readString();
-            this.order = in.readString();
-            this.pid = in.readString();
-            this.stype = in.readString();
-            this.title = in.readString();
-            this.type = in.readString();
-            this.url = in.readString();
-            this.vid = in.readString();
-        }
-
-        public static final Parcelable.Creator<BigImgBean> CREATOR = new Parcelable.Creator<BigImgBean>() {
-            @Override
-            public BigImgBean createFromParcel(Parcel source) {
-                return new BigImgBean(source);
-            }
-
-            @Override
-            public BigImgBean[] newArray(int size) {
-                return new BigImgBean[size];
-            }
-        };
     }
 
-    public static class ListBean implements Parcelable {
+    public static class ListBean implements Serializable {
         /**
          * brief : 本期节目主要内容：    因教书先生教授了《诗经》中“关关雎鸠，在河之洲；窈窕淑女，君子好逑。”之词
          * id : VSET100311356635
@@ -256,47 +210,5 @@ public class CultureBean {
             this.videoLength = videoLength;
         }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.brief);
-            dest.writeString(this.id);
-            dest.writeString(this.image);
-            dest.writeString(this.order);
-            dest.writeString(this.title);
-            dest.writeString(this.type);
-            dest.writeString(this.url);
-            dest.writeString(this.videoLength);
-        }
-
-        public ListBean() {
-        }
-
-        protected ListBean(Parcel in) {
-            this.brief = in.readString();
-            this.id = in.readString();
-            this.image = in.readString();
-            this.order = in.readString();
-            this.title = in.readString();
-            this.type = in.readString();
-            this.url = in.readString();
-            this.videoLength = in.readString();
-        }
-
-        public static final Parcelable.Creator<ListBean> CREATOR = new Parcelable.Creator<ListBean>() {
-            @Override
-            public ListBean createFromParcel(Parcel source) {
-                return new ListBean(source);
-            }
-
-            @Override
-            public ListBean[] newArray(int size) {
-                return new ListBean[size];
-            }
-        };
     }
 }

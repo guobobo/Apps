@@ -41,7 +41,7 @@
         android:layout_marginTop="@dimen/y50"
         android:paddingLeft="@dimen/x15"
         android:background="@drawable/btn_round"
-        android:hint="请输入密码" />
+        android:hint="请确认密码" />
 
     <LinearLayout
         android:layout_width="@dimen/x670"
@@ -51,15 +51,16 @@
         android:layout_marginTop="@dimen/y50">
 
         <EditText
-            android:id="@+id/phonefragment_Iamge_edit_Yanzhengma"
+            android:id="@+id/mailboxfragmen_Iamge_edit_Yanzhengma"
             android:layout_width="@dimen/x480"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/x15"
             android:background="@drawable/btn_round"
             android:hint="请输入图片验证码" />
 
+
         <TextView
-            android:id="@+id/phonefragment_text_Yanzhengma"
+            android:id="@+id/mailboxfragmen_text_Yanzhengma"
             android:layout_width="@dimen/x170"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/x20"

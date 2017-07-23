@@ -1,12 +1,13 @@
 package com.example.iu.myapplication.model.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/7/13.
  */
 
-public class Look_Down_Text {
+public class Look_Down_Text implements Serializable {
 
     private List<ListBean> list;
 
@@ -18,7 +19,7 @@ public class Look_Down_Text {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable {
         /**
          * url : http://panview.ipanda.com/2017/06/14/VIDE9KtPTNDzejj693BpDdWJ170614.shtml
          * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/6/14/1497403375650_254.jpg

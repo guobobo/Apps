@@ -1,24 +1,30 @@
 package com.example.iu.myapplication.module.home.Ativity;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.iu.myapplication.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseActivity;
+import com.example.iu.myapplication.config.UrlUtils;
+import com.example.iu.myapplication.model.entity.InteractivesBean;
+import com.example.iu.myapplication.module.home.adapter.InteractiveAdapter;
+import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastWebActivity;
+import com.example.iu.myapplication.net.OkhttpUtils;
+import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class InteractiveActivity extends BaseActivity {
+public class InteractiveActivity extends BaseActivity implements InteractiveAdapter.MyOnClickListener{
 
     @Bind(R.id.interactive_recy)
     RecyclerView interactiveRecy;
-    @Bind(R.id.activity_interactive)
-    LinearLayout activityInteractive;
-
+private ArrayList<InteractivesBean.InteractiveBean> list = new ArrayList<InteractivesBean.InteractiveBean>();
     @Override
     public int getLayoutId() {
         return R.layout.activity_interactive;
@@ -26,20 +32,47 @@ public class InteractiveActivity extends BaseActivity {
 
     @Override
     public void initView() {
-//        InteractiveAdapter interactiveAdapter = new InteractiveAdapter(this,);
+
+        OkhttpUtils.getInstance().get(UrlUtils.INTERACTIVE, null, new MyNetWorkCallBack<InteractivesBean>() {
+            @Override
+            public void onSuccess(InteractivesBean interactiveBean) {
+
+                List<InteractivesBean.InteractiveBean> interactive = interactiveBean.getInteractive();
+
+                list.addAll(interactive);
+
+                App.context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        InteractiveAdapter interactiveAdapter = new InteractiveAdapter(InteractiveActivity.this, list);
+
+                        LinearLayoutManager manager = new LinearLayoutManager(InteractiveActivity.this);
+
+                        interactiveRecy.setLayoutManager(manager);
+
+                        interactiveRecy.setAdapter(interactiveAdapter);
+
+                        interactiveAdapter.setListener(InteractiveActivity.this);
+                    }
+                });
+            }
+
+            @Override
+            public void onError(String msg) {
+                Toast.makeText(InteractiveActivity.this, "数据请求失败", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+    public void setOnClick(int pos) {
 
-    @OnClick(R.id.interactive_recy)
-    public void onViewClicked() {
-        Intent intent = new Intent(this,InteractivewebActivity.class);
+        Intent intent = new Intent(InteractiveActivity.this, BroadcastWebActivity.class);
+
+        intent.putExtra("name",list.get(pos).getUrl());
+
         startActivity(intent);
     }
 }
