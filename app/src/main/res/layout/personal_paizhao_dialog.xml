@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f0f0f0f"
+    android:padding="@dimen/y30">
+
+    <TextView
+        android:padding="@dimen/y30"
+        android:id="@+id/xiangce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="从手机相册选择"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:textSize="@dimen/x30"
+        android:background="@drawable/btn_wwww_round"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="#0f0f0f0f"/>
+
+    <TextView
+        android:padding="@dimen/x20"
+        android:id="@+id/paiyizhang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍一张"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:textSize="@dimen/x30"
+        android:background="@drawable/btn_wwww_round"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="#0f0f0f0f"/>
+
+    <TextView
+        android:padding="@dimen/x20"
+        android:id="@+id/quxiao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/y5"
+        android:gravity="center"
+        android:textSize="@dimen/x30"
+        android:background="@drawable/btn_wwww_round"/>
+
+
+</LinearLayout>

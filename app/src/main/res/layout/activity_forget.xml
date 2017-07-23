@@ -89,14 +89,28 @@
             android:background="@drawable/btn_round"
             android:hint="请输入图片验证码" />
 
-        <TextView
-            android:id="@+id/forget_text_Yanzhengma"
-            android:layout_width="@dimen/x170"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/x20"
-            android:background="@color/colorWhite"
-            android:gravity="center"
-            android:text="图形验证码"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/forget_Yanzhengma_t"
+                android:layout_width="@dimen/x170"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x20"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:text="图形验证码"/>
+            <ImageView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x20"
+                android:scaleType="fitXY"
+                android:src="@drawable/_no_collect"
+                android:id="@+id/forget_yanzhengma_i"/>
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 
