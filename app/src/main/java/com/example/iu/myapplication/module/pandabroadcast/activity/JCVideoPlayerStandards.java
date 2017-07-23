@@ -27,7 +27,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.model.dao.DaoMaster;
+import com.example.iu.myapplication.model.dao.DaoSession;
+import com.example.iu.myapplication.model.dao.MyHelper;
+import com.example.iu.myapplication.model.dao.Work;
+import com.example.iu.myapplication.model.dao.WorkDao;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -228,6 +236,11 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
     @Override
     public void onClick(View v) {
         super.onClick(v);
+
+
+//        sjkselec();
+
+
         int i = v.getId();
         if (i == fm.jiecao.jcvideoplayer_lib.R.id.thumb) {
             if (TextUtils.isEmpty(url)) {
@@ -260,16 +273,17 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
             Toast.makeText(getContext(), "77", Toast.LENGTH_SHORT).show();
             if (g_btn_collect.isChecked()) {
 
-                //取消收藏
                 listener.sC();
                 Toast.makeText(getContext(), "已收藏", Toast.LENGTH_SHORT).show();
+//                g_btn_collect.setChecked(false);
 
 
             } else {
 
                 Toast.makeText(getContext(), "已取消收藏", Toast.LENGTH_SHORT).show();
-                //收藏
+
                 listener.qxsc();
+//                g_btn_collect.setChecked(true);
             }
 
         } else if (i == fm.jiecao.jcvideoplayer_lib.R.id.gg_back) {
@@ -938,6 +952,28 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
         void gaoqin();
 
         void liuchang();
+
+
+        String fhz();
+
+    }
+    public void sjkselec(){
+
+        DaoMaster master = new DaoMaster(MyHelper.gethelper(getContext()).getr());
+        DaoSession daoSession = master.newSession();
+        WorkDao workDao = daoSession.getWorkDao();
+
+        QueryBuilder<Work> workQueryBuilder = workDao.queryBuilder();
+        List<Work> list = workQueryBuilder.list();
+        String fhz = listener.fhz();
+        for(int i1 = 0; i1 < list.size(); i1++) {
+            String s_url = list.get(i1).getUrl();
+            if(!s_url.equals(fhz)) {
+                g_btn_collect.setChecked(false);
+            }else {
+                g_btn_collect.setChecked(true);
+            }
+        }
 
     }
 }

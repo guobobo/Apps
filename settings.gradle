@@ -1,1 +1,1 @@
-include ':app', ':jcvideoplayer-libm'
+include ':app', ':jcvideoplayer-libm', ':PushSDK'

@@ -47,6 +47,8 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
     private String video_url1;
     final int HANDLERMSG = 1;
     private BroadcastSpActivity mActivity;
+    private Work work;
+    private List<Work> list;
 
     private String SPURL = "";
 
@@ -69,7 +71,7 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
             }
         }
     };
-    private Work work;
+    private String s_url;
 
 
     @Override
@@ -86,9 +88,7 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
         VideoBean_url = UrlUtils.VIDEO + id;
 
         getOk();
-
-
-
+        selec();
 
     }
 
@@ -186,21 +186,27 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
     @Override
     public void sC() {
 
-//        work = new Work();
-//        work.setData(data);
-//        work.setTitle(title);
-//        work.setUrl(video_url);
-//        work.setImage(image);
-//        add(work);
-//        selec();
+
+
+            work = new Work();
+            work.setData(data);
+            work.setTitle(title);
+            work.setUrl(video_url);
+            work.setImage(image);
+            add(work);
+            selec();
+
+
 
     }
 
     @Override
     public void qxsc() {
 
-//        delete(work);
-//        selec();
+        for(int i = 0; i < list.size(); i++) {
+            delete(work);
+        }
+        selec();
     }
 
     @Override
@@ -224,6 +230,11 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
         Toast.makeText(BroadcastSpActivity.this, "切换成功", Toast.LENGTH_SHORT).show();
 
 
+    }
+
+    @Override
+    public String fhz() {
+        return title;
     }
 
     class MyUserActionStandard implements JCUserActionStandard {
@@ -307,9 +318,13 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
         WorkDao workDao = daoSession.getWorkDao();
 
         QueryBuilder<Work> workQueryBuilder = workDao.queryBuilder();
-        List<Work> list = workQueryBuilder.list();
+        list = workQueryBuilder.list();
 
-        list.get(0).getUrl();
+        for(int i = 0; i < list.size(); i++) {
+            String s = list.get(i).getTitle();
+            Log.e("TAG","--------------------------------"+s);
+        }
+
 
     }
 }
