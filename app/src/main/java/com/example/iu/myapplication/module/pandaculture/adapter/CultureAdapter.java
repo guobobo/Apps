@@ -81,7 +81,8 @@ public class CultureAdapter extends RecyclerView.Adapter {
                     public void OnBannerClick(int position) {
                         Intent intent = new Intent(context, CultureWebActivity.class);
                         CultureBean.BigImgBean bigImgBean = list1.get(position);
-                        intent.putExtra("name",bigImgBean);
+                        String url = bigImgBean.getUrl();
+                        intent.putExtra("name",url);
                         App.context.startActivity(intent);
                     }
                 });

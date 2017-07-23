@@ -107,9 +107,6 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
     public void getOk() {
 
         new Thread() {
-
-
-
             @Override
             public void run() {
                 try {

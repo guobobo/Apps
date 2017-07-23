@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.example.iu.myapplication.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
+import com.example.iu.myapplication.customize.HistoryUtils;
 import com.example.iu.myapplication.model.entity.BroadCastBean;
 import com.example.iu.myapplication.model.entity.BroadCastListBean;
 import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastSpActivity;
@@ -148,6 +149,8 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
             intent1.putExtra("id",id);
 
             App.context.startActivity(intent1);
+
+            HistoryUtils.getInstance(getActivity()).instert(title, image,videolength);
         }
 
 

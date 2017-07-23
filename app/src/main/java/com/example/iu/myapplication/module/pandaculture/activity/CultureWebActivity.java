@@ -9,7 +9,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.iu.myapplication.R;
-import com.example.iu.myapplication.model.entity.CultureBean;
 
 public class CultureWebActivity extends AppCompatActivity {
 
@@ -22,9 +21,7 @@ public class CultureWebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_culture_web);
 
 
-        CultureBean.BigImgBean bigImgBean = getIntent().getParcelableExtra("name");
-        String url = bigImgBean.getUrl();
-
+        String url = getIntent().getStringExtra("name");
 
         webView = (WebView) findViewById(R.id.culture_web);
         webView.loadUrl(url);

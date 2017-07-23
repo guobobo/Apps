@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.androidkun.PullToRefreshRecyclerView;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
+import com.example.iu.myapplication.customize.HistoryUtils;
 import com.example.iu.myapplication.model.entity.CultureBean;
 import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastSpActivity;
 import com.example.iu.myapplication.module.pandaculture.adapter.CultureAdapter;
@@ -162,6 +163,8 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
 
         startActivity(intent);
 
+
+        HistoryUtils.getInstance(getActivity()).instert(title, image, videoLength);
 
     }
 
