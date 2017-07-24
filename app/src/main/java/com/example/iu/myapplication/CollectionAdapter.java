@@ -21,13 +21,11 @@ public class CollectionAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<WorkBean> list;
-    private boolean flag;
     private MyViewHolder viewHolder;
 
-    public CollectionAdapter(Context context, ArrayList<WorkBean> list, boolean flag) {
+    public CollectionAdapter(Context context, ArrayList<WorkBean> list) {
         this.context = context;
         this.list = list;
-        this.flag = flag;
     }
 
     @Override
@@ -53,7 +51,7 @@ public class CollectionAdapter extends BaseAdapter {
 
             convertView = View.inflate(context,R.layout.history_item,null);
 
-            viewHolder.history_item_checkBox = (CheckBox) convertView.findViewById(R.id.history_item_checkBox);
+//            viewHolder.history_item_checkBox = (CheckBox) convertView.findViewById(R.id.history_item_checkBox);
             viewHolder.history_item_imge = (ImageView) convertView.findViewById(R.id.history_item_imge);
             viewHolder.history_item_durationText = (TextView) convertView.findViewById(R.id.history_item_durationText);
             viewHolder.history_item_titleText = (TextView) convertView.findViewById(R.id.history_item_titleText);
@@ -71,13 +69,13 @@ public class CollectionAdapter extends BaseAdapter {
         viewHolder.history_item_titleText.setText(list.get(position).getTitle());
         viewHolder.history_item_tiemText.setText(list.get(position).getDayTime());
 
-        if(list.get(position).isVisibility()){
-            viewHolder.history_item_checkBox.setVisibility(View.VISIBLE);
-        }else {
-            viewHolder.history_item_checkBox.setVisibility(View.GONE);
-        }
-        boolean flag = list.get(position).isFlag();
-        viewHolder.history_item_checkBox.setChecked(flag);
+//        if(list.get(position).isVisibility()){
+//            viewHolder.history_item_checkBox.setVisibility(View.VISIBLE);
+//        }else {
+//            viewHolder.history_item_checkBox.setVisibility(View.GONE);
+//        }
+//        boolean flag = list.get(position).isFlag();
+//        viewHolder.history_item_checkBox.setChecked(flag);
 
         return convertView;
     }
@@ -89,5 +87,6 @@ public class CollectionAdapter extends BaseAdapter {
         TextView history_item_durationText;
         TextView history_item_titleText;
         TextView history_item_tiemText;
+
     }
 }

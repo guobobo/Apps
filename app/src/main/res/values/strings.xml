@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">熊猫频道</string>
     <string name="home">首页</string>
     <string name="pandalive">熊猫直播</string>
     <string name="pandavideo">熊猫文化</string>

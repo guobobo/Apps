@@ -193,6 +193,7 @@
 
     </LinearLayout>
 
+
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="@dimen/jc_start_button_w_h_normal"
@@ -207,9 +208,8 @@
         android:id="@+id/thumb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:scaleType="fitCenter"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/bottom_progress"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
