@@ -10,18 +10,16 @@ public class WorkBean {
     private String imageUrl;
     private String voideLength;
     private String dayTime;
+    private String mid;
     private boolean flag;
     private boolean visibility;
 
-    public WorkBean() {
-
-    }
-
-    public WorkBean(String title, String imageUrl, String voideLength, String dayTime, boolean flag, boolean visibility) {
+    public WorkBean(String title, String imageUrl, String voideLength, String dayTime, String mid, boolean flag, boolean visibility) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.voideLength = voideLength;
         this.dayTime = dayTime;
+        this.mid = mid;
         this.flag = flag;
         this.visibility = visibility;
     }
@@ -58,6 +56,14 @@ public class WorkBean {
         this.dayTime = dayTime;
     }
 
+    public String getMid() {
+        return mid;
+    }
+
+    public void setMid(String mid) {
+        this.mid = mid;
+    }
+
     public boolean isFlag() {
         return flag;
     }
@@ -74,3 +80,4 @@ public class WorkBean {
         this.visibility = visibility;
     }
 }
+

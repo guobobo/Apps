@@ -15,6 +15,7 @@ import com.example.iu.myapplication.module.pandalive.live.LiveOnFragment;
 import com.example.iu.myapplication.module.pandalive.live.LiveOnPresenter;
 import com.example.iu.myapplication.module.pandalive.wonderful.WonderfulFragment;
 import com.example.iu.myapplication.module.pandalive.wonderful.WonderfulPresenter;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,5 +126,16 @@ public class LiveFragment extends BaseFragment implements LiveContarct.View {
         new WonderfulPresenter(liveonFragment7);
         new WonderfulPresenter(liveonFragment8);
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getActivity());
+        MobclickAgent.onPageStart("LiveFragment");//统计时长
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getActivity());
+        MobclickAgent.onPageStart("LiveFragment");
+    }
 }

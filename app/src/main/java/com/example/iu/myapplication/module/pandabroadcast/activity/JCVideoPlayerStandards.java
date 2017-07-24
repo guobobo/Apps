@@ -71,6 +71,7 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
     private int maxVolume;
     private CheckBox btn_volume;
     private SeekBar seekbar_volume;
+    private ImageView g_start;
 
 
     public JCVideoPlayerStandards(Context context) {
@@ -102,6 +103,7 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
         btn_clarity = (TextView) findViewById(R.id.btn_clarity);
         btn_volume = (CheckBox) findViewById(R.id.btn_volume);
         seekbar_volume = (SeekBar) findViewById(R.id.seekbar_volume);
+//        g_start = (ImageView) findViewById(R.id.g_start);
 
         g_btn_share.setOnClickListener(this);
         g_btn_collect.setOnClickListener(this);
@@ -109,6 +111,7 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
         btn_clarity.setOnClickListener(this);
         btn_volume.setOnClickListener(this);
         seekbar_volume.setOnClickListener(this);
+//        g_start.setOnClickListener(this);
 
 
     }
@@ -343,6 +346,10 @@ public class JCVideoPlayerStandards extends JCVideoPlayer {
                 Toast.makeText(getContext(), ""+(currentVolume * 100 / maxVolume + " "), Toast.LENGTH_SHORT).show();
             }
 
+
+
+//        }else if(i == fm.jiecao.jcvideoplayer_lib.R.id.g_start) {
+//            g_start.setVisibility(GONE);
 
 
         }

@@ -96,7 +96,7 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
         JCVideoPlayerStandards myjcv =  (JCVideoPlayerStandards) findViewById(R.id.myjcv);
         myjcv.setUp(SPURL
                 , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, title);
-        myjcv.thumbImageView.setImageResource(R.drawable._no_img);
+//        myjcv.thumbImageView.setImageResource(R.drawable._no_img);
 
         myjcv.setListener(this);
         JCVideoPlayer.setJcUserAction(new MyUserActionStandard());
@@ -188,8 +188,10 @@ public class BroadcastSpActivity extends AppCompatActivity  implements JCVideoPl
             work = new Work();
             work.setData(data);
             work.setTitle(title);
-            work.setUrl(video_url);
             work.setImage(image);
+            work.setUrl(id);
+            work.setDuration(duration);
+
             add(work);
             selec();
 

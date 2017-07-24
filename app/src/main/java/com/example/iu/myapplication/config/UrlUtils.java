@@ -20,6 +20,9 @@ public class UrlUtils {
 
     public static final String Wonderful="http://api.cntv.cn/video/videolistById";
 
+    //边看边聊
+    public static final String Lookchar="http://newcomment.cntv.cn/comment/list?app=ipandaApp&itemid=zhiboye_chat&nature=1&page=1";
+
     //熊猫文化接口
     public static final String CULTUREURL = BaseURL+"xmwh/index.json";
 

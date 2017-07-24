@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -77,7 +78,14 @@ public class HistoryAdapter extends BaseAdapter{
         }
         boolean flag = list.get(position).isFlag();
         viewHolder.history_item_checkBox.setChecked(flag);
-
+        viewHolder.history_item_checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    viewHolder.history_item_checkBox.setChecked(isChecked);
+                }
+            }
+        });
         return convertView;
     }
 

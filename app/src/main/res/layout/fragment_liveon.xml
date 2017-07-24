@@ -124,13 +124,66 @@
                     android:textColor="@color/colorBlank"
                     />
             </LinearLayout>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/live_recy"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y1100"
-                android:padding="@dimen/x20"
-                >
-            </android.support.v7.widget.RecyclerView>
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/linear_duo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/live_recy"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y1100"
+                        android:padding="@dimen/x20"></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_bian"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y130"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="@dimen/x30"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/bian_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y130"
+                            android:layout_weight="1"
+                            android:hint="添加评论..."
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/y100"
+                            android:layout_weight="1"
+                            android:background="@color/colorBlue"
+                            android:gravity="center"
+                            android:text="发送" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/live_recy1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y800"
+                        android:layout_marginTop="@dimen/x10"
+                        android:padding="@dimen/x20">
+
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
