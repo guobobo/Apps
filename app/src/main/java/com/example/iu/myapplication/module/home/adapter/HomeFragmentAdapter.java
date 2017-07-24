@@ -43,39 +43,28 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
     public interface x_Recy_Onclick {
 
-//        轮播图   监听方法
-
+//        轮播图监听
         void get_Ratation_Click(View v, HomeBean.DataBean.BigImgBean bigImgBean);
-
-
         //        精彩推荐  监听的方法
         void get_wonderful_Click(HomeBean.DataBean.AreaBean.ListscrollBean home_data);
-
-        //        熊猫观察第一条 监听的方法
+        //        熊猫观察（新生） 监听的方法
         void get_pandan_loog_Click(View look_view, HomeBean.DataBean.PandaeyeBean.ItemsBean itemsBean);
-
-        //       熊猫观察第 二条 监听的方法
+        //       熊猫观察（趣闻） 监听的方法
         void get_pandan_loog_second_Click(View look_view, HomeBean.DataBean.PandaeyeBean.ItemsBean second_itemsBean);
-
-        //        熊猫观察下面的点击事件
+        //        熊猫观察（listview）监听
         void get_pandan_look_down_Click(Look_Down_Text.ListBean look_down_text);
-
-        //熊猫直播的点击事件
+        //熊猫直播的监听
         void get_Panda_live_Click(HomeBean.DataBean.PandaliveBean pandalivebean);
-
-        //        //        长城直播的点击事件
+        //        //        长城直播的监听
         void get_great_live_Click(HomeBean.DataBean.WallliveBean listBeanX);
         //
-//        //        直播中国
+//        //        直播中国监听
         void get_china_live_Click(HomeBean.DataBean.ChinaliveBean listBeanXX);
-        //
-//        //        特别策划
+//        //        特别策划监听
         void get_special_planning_Click(View v, HomeBean.DataBean.InteractiveBean.InteractiveoneBean interactiveoneBean);
-        //
-//        //        CCTV 点击事件
+//        //        CCTV 点击事件监听
         void get_cctv_live_Click(Home_CCTV_Bean.ListBean listBean);
-        //
-//        //        公映中国
+//        //        公映中国监听
         void get_movie_live_Click(Home_China_Movie_Text.ListBean listBean);
 
     }
@@ -237,7 +226,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
                 View cctv_view = LayoutInflater.from(context).inflate(R.layout.homefragment_recy_cctv, null);
 
                 return new Cctv_viewHolder(cctv_view);
-            //            公映中国
+            //            光影中国
             case 9:
                 View movie_china_view = LayoutInflater.from(context).inflate(R.layout.homefragment_recy_light, null);
 
@@ -358,7 +347,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter implements ViewPag
 
 
                 break;
-//熊猫直播
+            //熊猫直播
             case panda_live_type:
 
                 final HomeBean.DataBean.PandaliveBean pandaliveBean = (HomeBean.DataBean.PandaliveBean) o;

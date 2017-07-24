@@ -3,6 +3,7 @@ package com.example.iu.myapplication.module.home.Ativity;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.iu.myapplication.App;
@@ -19,12 +20,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
-public class InteractiveActivity extends BaseActivity implements InteractiveAdapter.MyOnClickListener{
+public class InteractiveActivity extends BaseActivity implements InteractiveAdapter.MyOnClickListener {
 
     @Bind(R.id.interactive_recy)
     RecyclerView interactiveRecy;
-private ArrayList<InteractivesBean.InteractiveBean> list = new ArrayList<InteractivesBean.InteractiveBean>();
+    @Bind(R.id.iteractive_backImage)
+    ImageView iteractiveBackImage;
+    private ArrayList<InteractivesBean.InteractiveBean> list = new ArrayList<InteractivesBean.InteractiveBean>();
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_interactive;
@@ -71,8 +76,14 @@ private ArrayList<InteractivesBean.InteractiveBean> list = new ArrayList<Interac
 
         Intent intent = new Intent(InteractiveActivity.this, BroadcastWebActivity.class);
 
-        intent.putExtra("name",list.get(pos).getUrl());
+        intent.putExtra("name", list.get(pos).getUrl());
 
         startActivity(intent);
+    }
+
+    @OnClick(R.id.iteractive_backImage)
+    public void onViewClicked() {
+
+        finish();
     }
 }

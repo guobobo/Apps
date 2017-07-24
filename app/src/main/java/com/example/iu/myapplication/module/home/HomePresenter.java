@@ -59,6 +59,7 @@ public class HomePresenter implements HomeContarct.Presenter {
 
                 @Override
                 public void onError(String msg) {
+                   // homeview.setMessage(msg);
                     LogUtils.MyLog("版本更新网络请求错误",msg);
                 }
 

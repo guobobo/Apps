@@ -69,6 +69,12 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
         initData();
         getVersion();
+        adapter = new HomeFragmentAdapter(home_data_object, getActivity(), list);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+
+        homeXrecy.setLayoutManager(manager);
+
+        homeXrecy.setAdapter(adapter);
         homeXrecy.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -87,6 +93,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     @Override
     public void loadDate() {
         presenter.start();
+
     }
 
     @Override
@@ -119,14 +126,9 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         HomeBean.DataBean data = homeBean.getData();
 
         list.add(data);
+        adapter.notifyDataSetChanged();
 
-        adapter = new HomeFragmentAdapter(home_data_object, getActivity(), list);
 
-        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-
-        homeXrecy.setLayoutManager(manager);
-
-        homeXrecy.setAdapter(adapter);
 
 
         adapter.setx_Recy_Onclick(this);
@@ -134,10 +136,12 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     @Override
     public void setMessage(String msg) {
+        LogUtils.MyLog("TAG","走没");
         ACache aCache = ACache.get(App.context);
         HomeBean homeBean = (HomeBean) aCache.getAsObject("HomeBean");
         if(homeBean!=null){
             list.add(homeBean.getData());
+            adapter.notifyDataSetChanged();
         }
     }
 
@@ -341,9 +345,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     }
 
-    /**
-     * 提示版本更新的对话框
-     */
+  //提示更新
     private void showDialogUpdate() {
         // 这里的属性可以一直设置，因为每次设置后返回的是一个builder对象
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -374,9 +376,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     }
 
-    /**
-     * 下载新版本程序，需要子线程
-     */
+
+//     下载新版本程序
     private void loadNewVersionProgress() {
         final String uri = versionsUrl;
         final ProgressDialog pd;    //进度条对话框
@@ -403,11 +404,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         }.start();
     }
 
-    /**
-     * 从服务器获取apk文件的代码
-     * 传入网址uri，进度条对象即可获得一个File文件
-     * （要在子线程中执行哦）
-     */
+    //从服务器获取apk文件的代码
+
     public File getFileFromServer(String uri, final ProgressDialog pd) throws Exception {
         //如果相等的话表示当前的sdcard挂载在手机上并且是可用的
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
@@ -415,6 +413,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);
             //获取到文件的大小
+            pd.setMax(conn.getContentLength()/100);
             InputStream is = conn.getInputStream();
             long time = System.currentTimeMillis();//当前时间的毫秒数
             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), time + "updata.apk");
@@ -428,6 +427,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
             while ((len = bis.read(buffer)) != -1) {
                 fos.write(buffer, 0, len);
                 total += len;
+                //获取当前下载量
+                pd.setProgress(total/100);
             }
             fos.close();
             bis.close();
@@ -438,9 +439,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         }
     }
 
-    /**
-     * 安装apk
-     */
+   //安装Apk
     protected void installApk(File file) {
         Intent intent = new Intent();
         //执行动作

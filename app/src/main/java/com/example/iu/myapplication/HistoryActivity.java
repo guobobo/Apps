@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.iu.myapplication.base.BaseActivity;
+import com.example.iu.myapplication.config.LogUtils;
 import com.example.iu.myapplication.model.dao.DaoMaster;
 import com.example.iu.myapplication.model.dao.DaoSession;
 import com.example.iu.myapplication.model.dao.History;
@@ -112,6 +113,11 @@ public class HistoryActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HistoryBean historyBean = hList.get(position);
+
+                boolean flag = historyBean.isFlag();
+
+                LogUtils.MyLog("TAG",flag+"当前flag");
+
                 if(historyBean.isFlag()==false){
                     historyBean.setFlag(true);
                     number++;
@@ -121,7 +127,6 @@ public class HistoryActivity extends BaseActivity {
                     historyItemDeleteBtn.setText("删除"+"("+number+")");
                     historyBean.setFlag(false);
                 }
-                adapter.notifyDataSetChanged();
             }
         });
     }
