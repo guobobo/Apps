@@ -4,7 +4,7 @@ package com.example.iu.myapplication.module.chinalive.item;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
-import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.model.entity.ChinaListBean;

@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,8 +8,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.iu.myapplication.fargment.CollectionAreaFragment;
+import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.adapter.CollectionFragmentAdapetr;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.customize.CustomViewPager;
+import com.example.iu.myapplication.fargment.CollectionLiveFragment;
 
 import java.util.ArrayList;
 

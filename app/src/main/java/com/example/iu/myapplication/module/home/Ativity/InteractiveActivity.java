@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.config.UrlUtils;

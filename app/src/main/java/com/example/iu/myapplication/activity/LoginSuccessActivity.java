@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.umeng.socialize.UMShareAPI;
 

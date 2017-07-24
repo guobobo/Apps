@@ -1,33 +1,32 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.adapter;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.iu.myapplication.model.entity.HistoryBean;
+import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.model.entity.WorkBean;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
- * Created by dell on 2017/7/21.
+ * Created by iu on 2017/7/23.
  */
 
-public class HistoryAdapter extends BaseAdapter{
+public class CollectionAdapter extends BaseAdapter {
 
-    private List<HistoryBean> list;
-    private HistoryActivity activity;
+    private Context context;
+    private ArrayList<WorkBean> list;
     private MyViewHolder viewHolder;
-    private boolean flag;
 
-    public HistoryAdapter(List<HistoryBean> list, HistoryActivity activity , boolean flag) {
+    public CollectionAdapter(Context context, ArrayList<WorkBean> list) {
+        this.context = context;
         this.list = list;
-        this.activity = activity;
-        this.flag = flag;
     }
 
     @Override
@@ -51,9 +50,9 @@ public class HistoryAdapter extends BaseAdapter{
         if(convertView==null){
             viewHolder = new MyViewHolder();
 
-            convertView = View.inflate(activity,R.layout.history_item,null);
+            convertView = View.inflate(context, R.layout.history_item,null);
 
-            viewHolder.history_item_checkBox = (CheckBox) convertView.findViewById(R.id.history_item_checkBox);
+//            viewHolder.history_item_checkBox = (CheckBox) convertView.findViewById(R.id.history_item_checkBox);
             viewHolder.history_item_imge = (ImageView) convertView.findViewById(R.id.history_item_imge);
             viewHolder.history_item_durationText = (TextView) convertView.findViewById(R.id.history_item_durationText);
             viewHolder.history_item_titleText = (TextView) convertView.findViewById(R.id.history_item_titleText);
@@ -66,26 +65,19 @@ public class HistoryAdapter extends BaseAdapter{
             viewHolder = (MyViewHolder) convertView.getTag();
         }
 
-        Glide.with(activity).load(list.get(position).getImageUrl()).into(viewHolder.history_item_imge);
+        Glide.with(context).load(list.get(position).getImageUrl()).into(viewHolder.history_item_imge);
         viewHolder.history_item_durationText.setText(list.get(position).getVoideLength());
         viewHolder.history_item_titleText.setText(list.get(position).getTitle());
         viewHolder.history_item_tiemText.setText(list.get(position).getDayTime());
 
-        if(list.get(position).isVisibility()){
-            viewHolder.history_item_checkBox.setVisibility(View.VISIBLE);
-        }else {
-            viewHolder.history_item_checkBox.setVisibility(View.GONE);
-        }
-        boolean flag = list.get(position).isFlag();
-        viewHolder.history_item_checkBox.setChecked(flag);
-        viewHolder.history_item_checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    viewHolder.history_item_checkBox.setChecked(isChecked);
-                }
-            }
-        });
+//        if(list.get(position).isVisibility()){
+//            viewHolder.history_item_checkBox.setVisibility(View.VISIBLE);
+//        }else {
+//            viewHolder.history_item_checkBox.setVisibility(View.GONE);
+//        }
+//        boolean flag = list.get(position).isFlag();
+//        viewHolder.history_item_checkBox.setChecked(flag);
+
         return convertView;
     }
 
@@ -96,5 +88,6 @@ public class HistoryAdapter extends BaseAdapter{
         TextView history_item_durationText;
         TextView history_item_titleText;
         TextView history_item_tiemText;
+
     }
 }

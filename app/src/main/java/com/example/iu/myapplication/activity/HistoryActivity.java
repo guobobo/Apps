@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.adapter.HistoryAdapterRecy;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.model.dao.DaoMaster;
 import com.example.iu.myapplication.model.dao.DaoSession;

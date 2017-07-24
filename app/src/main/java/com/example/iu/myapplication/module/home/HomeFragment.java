@@ -11,9 +11,10 @@ import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.config.ACache;
@@ -59,6 +60,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     private String versionsUrl;
     private AlertDialog alertDialog;
     private  int total = 0;
+    private ProgressBar pro;
+
     @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
@@ -66,6 +69,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     @Override
     public void initView(View view) {
+
+        pro = (ProgressBar) view.findViewById(R.id.fragment_home_progress);
 
         initData();
         getVersion();
@@ -109,6 +114,10 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     @Override
     public void setResult(HomeBean homeBean) {
+
+        if(homeBean!=null){
+            pro.setVisibility(View.GONE);
+        }
 
         home_data_object.clear();
         home_data_object.add(homeBean.getData().getBigImg().get(0));

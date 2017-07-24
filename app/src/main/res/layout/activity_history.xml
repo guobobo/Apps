@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#f0f0f0"
-    tools:context="com.example.iu.myapplication.HistoryActivity">
+    tools:context="com.example.iu.myapplication.activity.HistoryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

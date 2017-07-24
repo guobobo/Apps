@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.activity;
 
 import android.view.View;
 import android.widget.CheckBox;
@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.umeng.message.IUmengCallback;
 import com.umeng.message.PushAgent;

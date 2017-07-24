@@ -1,12 +1,16 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.adapter.CollectionFragmentAdapetr;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.customize.CustomViewPager;
+import com.example.iu.myapplication.fargment.MailBoxFragment;
+import com.example.iu.myapplication.fargment.PhoneFragment;
 
 import java.util.ArrayList;
 

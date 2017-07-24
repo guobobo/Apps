@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.fargment;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.config.LogUtils;
 
 import java.io.ByteArrayInputStream;

@@ -1,6 +1,6 @@
 package com.example.iu.myapplication.net;
 
-import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.config.ACache;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 import com.google.gson.Gson;

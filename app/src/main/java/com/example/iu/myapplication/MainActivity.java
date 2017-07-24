@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.iu.myapplication.activity.PersonalActivity;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.module.chinalive.ChinaFragment;
 import com.example.iu.myapplication.module.chinalive.ChinaPresenter;

@@ -1,6 +1,6 @@
 package com.example.iu.myapplication.module.home;
 
-import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.config.LogUtils;
 import com.example.iu.myapplication.model.biz.home.HomeModel;
 import com.example.iu.myapplication.model.biz.home.HomeModelImpl;

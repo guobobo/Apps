@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,20 +11,21 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.iu.myapplication.model.entity.WorkBean;
+import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.model.entity.HistoryBean;
 
 import java.util.ArrayList;
 
 /**
- * Created by iu on 2017/7/24.
+ * Created by dell on 2017/7/21.
  */
 
-public class CollectionAdapterRecy extends RecyclerView.Adapter {
+public class HistoryAdapterRecy extends RecyclerView.Adapter {
+
     private Context context;
-    private ArrayList<WorkBean> list;
+    private ArrayList<HistoryBean> list;
 
-
-    public CollectionAdapterRecy(Context context, ArrayList<WorkBean> list) {
+    public HistoryAdapterRecy(Context context, ArrayList<HistoryBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -55,8 +56,6 @@ public class CollectionAdapterRecy extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 onHistory.onHistoryListener(position);
-
-
             }
         });
 
@@ -85,9 +84,9 @@ public class CollectionAdapterRecy extends RecyclerView.Adapter {
         }
     }
 
-    private HistoryAdapterRecy.OnHistory onHistory;
+    private OnHistory onHistory;
 
-    public void setOnHistory(HistoryAdapterRecy.OnHistory onHistory) {
+    public void setOnHistory(OnHistory onHistory) {
         this.onHistory = onHistory;
     }
 
@@ -95,4 +94,3 @@ public class CollectionAdapterRecy extends RecyclerView.Adapter {
         void onHistoryListener(int position);
     }
 }
-

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.iu.myapplication.App;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.config.GlideImageLoader;
 import com.example.iu.myapplication.model.entity.CultureBean;

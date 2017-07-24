@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.fargment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.adapter.CollectionAdapterRecy;
+import com.example.iu.myapplication.adapter.HistoryAdapterRecy;
 import com.example.iu.myapplication.model.dao.DaoMaster;
 import com.example.iu.myapplication.model.dao.DaoSession;
 import com.example.iu.myapplication.model.dao.MyHelper;
-import com.example.iu.myapplication.model.dao.MyHistoryHelper;
 import com.example.iu.myapplication.model.dao.Work;
 import com.example.iu.myapplication.model.dao.WorkDao;
 import com.example.iu.myapplication.model.entity.WorkBean;
@@ -164,7 +166,7 @@ public class CollectionAreaFragment extends Fragment implements View.OnClickList
     public void deleteAll() {
 
 
-        DaoMaster master = new DaoMaster(MyHistoryHelper.gethelper(getActivity()).getW());
+        DaoMaster master = new DaoMaster(MyHelper.gethelper(getActivity()).getw());
 
         DaoSession session = master.newSession();
 
@@ -176,7 +178,7 @@ public class CollectionAreaFragment extends Fragment implements View.OnClickList
 
     public void delete(Work work) {
 
-        DaoMaster master = new DaoMaster(MyHistoryHelper.gethelper(getActivity()).getW());
+        DaoMaster master = new DaoMaster(MyHelper.gethelper(getActivity()).getw());
 
         DaoSession session = master.newSession();
 

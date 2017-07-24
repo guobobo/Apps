@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseActivity;
 import com.example.iu.myapplication.config.LogUtils;
 import com.example.iu.myapplication.model.entity.LoginBean;

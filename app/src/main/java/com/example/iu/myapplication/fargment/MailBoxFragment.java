@@ -1,4 +1,4 @@
-package com.example.iu.myapplication;
+package com.example.iu.myapplication.fargment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,17 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.iu.myapplication.R;
+
 /**
- * Created by dell on 2017/7/18.
+ * Created by dell on 2017/7/19.
  */
 
-public class CollectionLiveFragment extends Fragment {
+public class MailBoxFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.collection_live, null);
+        View view = inflater.inflate(R.layout.registered_mailboxfragment, null);
 
         return view;
     }
