@@ -3,6 +3,7 @@ package com.example.iu.myapplication.module.pandalive.live;
 
 import com.example.iu.myapplication.model.biz.live.LiveModel;
 import com.example.iu.myapplication.model.biz.live.LiveModelImpl;
+import com.example.iu.myapplication.model.entity.LookchatBean;
 import com.example.iu.myapplication.model.entity.PandaLiveBean;
 import com.example.iu.myapplication.model.entity.PandaMultipleBean;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
@@ -44,6 +45,21 @@ public class LiveOnPresenter implements LiveOnContarct.Presenter {
             @Override
             public void onError(String msg) {
                 liveonView.setMessage(msg);
+            }
+        });
+    }
+
+    @Override
+    public void lookchat() {
+        liveModel.getLookchatData(new MyNetWorkCallBack<LookchatBean>() {
+            @Override
+            public void onSuccess(LookchatBean lookchatBean) {
+                liveonView.setLookchat(lookchatBean);
+            }
+
+            @Override
+            public void onError(String msg) {
+
             }
         });
     }

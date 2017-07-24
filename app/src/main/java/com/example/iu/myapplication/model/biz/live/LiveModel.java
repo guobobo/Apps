@@ -1,6 +1,7 @@
 package com.example.iu.myapplication.model.biz.live;
 
 import com.example.iu.myapplication.base.BaseModel;
+import com.example.iu.myapplication.model.entity.LookchatBean;
 import com.example.iu.myapplication.model.entity.PandaLiveBean;
 import com.example.iu.myapplication.model.entity.PandaMultipleBean;
 import com.example.iu.myapplication.model.entity.WonderfulBean;
@@ -16,4 +17,7 @@ public interface LiveModel extends BaseModel {
     void getMultipleData(MyNetWorkCallBack<PandaMultipleBean> callBack);
 
     void getWonderfulData(String vsid,String n,String serviceId,String o,String of,String p,MyNetWorkCallBack<WonderfulBean> callBack);
+
+    void getLookchatData(MyNetWorkCallBack<LookchatBean> callBack);
+
 }

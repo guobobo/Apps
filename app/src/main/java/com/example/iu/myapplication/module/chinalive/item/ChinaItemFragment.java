@@ -11,6 +11,7 @@ import com.example.iu.myapplication.model.entity.ChinaListBean;
 import com.example.iu.myapplication.net.OkhttpUtils;
 import com.example.iu.myapplication.net.callback.MyNetWorkCallBack;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 
@@ -89,6 +90,19 @@ public class ChinaItemFragment extends BaseFragment implements ChinaItemContarct
     @Override
     public void setMessage(String msg) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getActivity());
+        MobclickAgent.onPageStart("ChinaItemFragment");//统计时长
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getActivity());
+        MobclickAgent.onPageStart("ChinaItemFragment");
     }
 
 }

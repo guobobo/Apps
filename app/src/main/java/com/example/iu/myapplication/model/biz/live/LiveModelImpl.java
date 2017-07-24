@@ -1,6 +1,7 @@
 package com.example.iu.myapplication.model.biz.live;
 
 import com.example.iu.myapplication.config.UrlUtils;
+import com.example.iu.myapplication.model.entity.LookchatBean;
 import com.example.iu.myapplication.model.entity.PandaLiveBean;
 import com.example.iu.myapplication.model.entity.PandaMultipleBean;
 import com.example.iu.myapplication.model.entity.WonderfulBean;
@@ -35,6 +36,11 @@ public class LiveModelImpl implements LiveModel {
         map.put("of",of);
         map.put("p",p);
         ihttp.get(UrlUtils.Wonderful,map,callBack);
+    }
+
+    @Override
+    public void getLookchatData(MyNetWorkCallBack<LookchatBean> callBack) {
+        ihttp.get(UrlUtils.Lookchar,null,callBack);
     }
 
 }

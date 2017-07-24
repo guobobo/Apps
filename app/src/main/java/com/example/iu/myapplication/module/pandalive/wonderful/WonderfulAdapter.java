@@ -54,7 +54,23 @@ public class WonderfulAdapter extends RecyclerView.Adapter {
             recy_wond_img= (ImageView) itemView.findViewById(R.id.recy_wond_img);
             recy_wond_title= (TextView) itemView.findViewById(R.id.recy_wond_title);
             recy_wond_ptime= (TextView) itemView.findViewById(R.id.recy_wond_ptime);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onWonderful.onWonderful(getAdapterPosition());
+                }
+            });
         }
+    }
+
+    private OnWonderful onWonderful;
+
+    public void setOnWonderful(OnWonderful onWonderful) {
+        this.onWonderful = onWonderful;
+    }
+
+    public interface OnWonderful{
+        void onWonderful(int position);
     }
 
 }

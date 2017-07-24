@@ -1,6 +1,7 @@
 package com.example.iu.myapplication.module.pandalive.wonderful;
 
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -8,7 +9,9 @@ import android.view.View;
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.model.entity.WonderfulBean;
+import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastSpActivity;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 
@@ -89,11 +92,44 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
             }
         });
 
+        wonderfulAdapter.setOnWonderful(new WonderfulAdapter.OnWonderful() {
+            @Override
+            public void onWonderful(int position) {
+                Intent intent = new Intent(getActivity(), BroadcastSpActivity.class);
+                WonderfulBean.VideoBean videoBean = list.get(position - 1);
+
+                String title = videoBean.getT();
+                String image = videoBean.getImg();
+                String videoLength = videoBean.getLen();
+                String id = videoBean.getVid();
+
+                intent.putExtra("title",title);
+                intent.putExtra("image",image);
+                intent.putExtra("duration",videoLength);
+                intent.putExtra("id",id);
+
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
     public void setMessage(String msg) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getActivity());
+        MobclickAgent.onPageStart("WonderfulFragment");//统计时长
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getActivity());
+        MobclickAgent.onPageStart("WonderfulFragment");
     }
 
 }

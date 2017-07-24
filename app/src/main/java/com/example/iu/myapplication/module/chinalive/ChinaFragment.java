@@ -29,6 +29,7 @@ import com.example.iu.myapplication.module.chinalive.item.ChinaItemFragment;
 import com.example.iu.myapplication.module.chinalive.item.ChinaItemPresenter;
 import com.example.iu.myapplication.module.chinalive.item.GridAllAdapter;
 import com.example.iu.myapplication.module.chinalive.item.GridTabAdapter;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -261,4 +262,16 @@ public class ChinaFragment extends BaseFragment implements ChinaContarct.View {
         this.presenter = presenter;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getActivity());
+        MobclickAgent.onPageStart("ChinaFragment");//统计时长
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getActivity());
+        MobclickAgent.onPageStart("ChinaFragment");
+    }
 }
