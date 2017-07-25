@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.iu.myapplication.R;
 import com.example.iu.myapplication.base.BaseFragment;
+import com.example.iu.myapplication.customize.HistoryUtils;
 import com.example.iu.myapplication.model.entity.WonderfulBean;
 import com.example.iu.myapplication.module.pandabroadcast.activity.BroadcastSpActivity;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -32,6 +34,7 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
     private static final String o="desc";
     private static final String of="time";
     private static int p=1;
+    private ProgressBar wonderful;
 
     public WonderfulFragment(String VSID) {
         this.VSID = VSID;
@@ -44,6 +47,7 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
 
     @Override
     public void initView(View view) {
+        wonderful = (ProgressBar) view.findViewById(R.id.wonderful_progress);
 
     }
 
@@ -60,6 +64,11 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
 
     @Override
     public void setResult(WonderfulBean wonderfulBean) {
+
+        if(wonderfulBean!=null) {
+            wonderful.setVisibility(View.GONE);
+        }
+
         list=new ArrayList<>();
         for (int i=0;i<wonderfulBean.getVideo().size();i++){
             WonderfulBean.VideoBean videoBean = wonderfulBean.getVideo().get(i);
@@ -109,6 +118,7 @@ public class WonderfulFragment extends BaseFragment implements WonderfulContarct
                 intent.putExtra("id",id);
 
                 startActivity(intent);
+                HistoryUtils.getInstance(getActivity()).instert(title, image, videoLength);
             }
         });
 

@@ -17,6 +17,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,7 @@ public class ChinaFragment extends BaseFragment implements ChinaContarct.View {
     private ImageView delect_channel;
     private PopupWindow popupWindow;
     private Button live_china_edit;
+    private ProgressBar progressBar;
 
     @Override
     public int getLayoutId() {
@@ -71,7 +73,7 @@ public class ChinaFragment extends BaseFragment implements ChinaContarct.View {
 
     @Override
     public void initView(View view) {
-
+        progressBar = (ProgressBar) view.findViewById(R.id.china_progress);
     }
 
     @Override
@@ -213,6 +215,10 @@ public class ChinaFragment extends BaseFragment implements ChinaContarct.View {
 
     @Override
     public void setResult(ChinaBean chinaBean) {
+
+        if(chinaBean!=null) {
+            progressBar.setVisibility(View.GONE);
+        }
 
         list.clear();
         alllistBeen.clear();

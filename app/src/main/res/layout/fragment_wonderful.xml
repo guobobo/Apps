@@ -4,11 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/wond_xrecy"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.jcodecraeer.xrecyclerview.XRecyclerView>
+        <ProgressBar
+            android:id="@+id/wonderful_progress"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/livechina_prgressbar"
+            android:indeterminateDrawable="@drawable/bars"
+            android:padding="10dp"  />
 
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/wond_xrecy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.jcodecraeer.xrecyclerview.XRecyclerView>
+    </RelativeLayout>
 </LinearLayout>

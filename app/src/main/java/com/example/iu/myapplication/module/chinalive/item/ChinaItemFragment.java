@@ -3,6 +3,7 @@ package com.example.iu.myapplication.module.chinalive.item;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
@@ -25,6 +26,8 @@ public class ChinaItemFragment extends BaseFragment implements ChinaItemContarct
     private ArrayList<ChinaListBean.LiveBean> tablistBeen = new ArrayList<>();
     ChinaItemAdapter chinaItemAdapter;
     String url;
+    private ProgressBar china_item;
+
     public ChinaItemFragment(String url) {
         this.url=url;
     }
@@ -36,7 +39,7 @@ public class ChinaItemFragment extends BaseFragment implements ChinaItemContarct
 
     @Override
     public void initView(View view) {
-
+        china_item = (ProgressBar) view.findViewById(R.id.china_item_progress);
     }
 
     @Override
@@ -48,6 +51,9 @@ public class ChinaItemFragment extends BaseFragment implements ChinaItemContarct
         OkhttpUtils.getInstance().get(url, null, new MyNetWorkCallBack<ChinaListBean>() {
             @Override
             public void onSuccess(ChinaListBean chinaListBean) {
+                if(chinaListBean!=null){
+                    china_item.setVisibility(View.GONE);
+                }
                 tablistBeen.clear();
                 tablistBeen.addAll(chinaListBean.getLive());
                 App.context.runOnUiThread(new Runnable() {

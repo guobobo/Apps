@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -66,6 +67,7 @@ public class LiveOnFragment extends BaseFragment implements LiveOnContarct.View 
 
     List<PandaMultipleBean.ListBean> multipleBeen;
     LiveAdapterRecy adapterRecy;
+    private ProgressBar liveon;
 
     @Override
     public int getLayoutId() {
@@ -74,7 +76,7 @@ public class LiveOnFragment extends BaseFragment implements LiveOnContarct.View 
 
     @Override
     public void initView(View view) {
-
+        liveon = (ProgressBar) view.findViewById(R.id.liveon_progress);
     }
 
     @Override
@@ -91,6 +93,11 @@ public class LiveOnFragment extends BaseFragment implements LiveOnContarct.View 
 
     @Override
     public void setMultiple(final PandaMultipleBean pandaMultipleBean) {
+
+        if(pandaMultipleBean!=null){
+            liveon.setVisibility(View.GONE);
+        }
+
         Glide.with(getContext()).load(pandaMultipleBean.getList().get(0).getImage()).asBitmap().into(liveImage);
         multipleBeen = new ArrayList<>();
         for (int i = 0; i < pandaMultipleBean.getList().size(); i++) {
@@ -115,6 +122,9 @@ public class LiveOnFragment extends BaseFragment implements LiveOnContarct.View 
 
     @Override
     public void setResult(PandaLiveBean pandaLiveBean) {
+        if(pandaLiveBean!=null){
+            liveon.setVisibility(View.GONE);
+        }
         liveTitle.setText(pandaLiveBean.getLive().get(0).getTitle());
         liveBrief.setText(pandaLiveBean.getLive().get(0).getBrief());
     }
@@ -126,6 +136,9 @@ public class LiveOnFragment extends BaseFragment implements LiveOnContarct.View 
 
     @Override
     public void setLookchat(LookchatBean lookchatBean) {
+        if(lookchatBean!=null){
+            liveon.setVisibility(View.GONE);
+        }
         ArrayList<LookchatBean.DataBean.ContentBean> contentBeen=new ArrayList<>();
         contentBeen.addAll(lookchatBean.getData().getContent());
         LookchatAdapterRecy lookchatAdapter=new LookchatAdapterRecy(getContext(),contentBeen);
