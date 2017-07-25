@@ -9,5 +9,5 @@
     <color name="colorBlank">#000000</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorRed">#ff0000</color>
-
+    <color name="prgressbarcolor">#4d5a5d</color>
 </resources>

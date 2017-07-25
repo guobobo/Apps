@@ -380,6 +380,7 @@ public class PhoneFragment extends Fragment implements View.OnFocusChangeListene
 
     }
 
+    //判断是否有网
     public boolean isConnected() {
         // 获取手机所有连接管理对象（包括对wi-fi,net等连接的管理）
         try {

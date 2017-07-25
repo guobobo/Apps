@@ -18,8 +18,8 @@
             android:button="@null"
             android:checked="false"
             android:background="@drawable/history_selector"
-            android:layout_width="@dimen/x45"
-            android:layout_height="@dimen/y65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             />
         <RelativeLayout

@@ -7,15 +7,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.config.ACache;
 import com.example.iu.myapplication.config.LogUtils;
@@ -48,10 +51,12 @@ import butterknife.Bind;
  * Created by dell on 2017/7/12.
  */
 
-public class HomeFragment extends BaseFragment implements HomeContarct.View ,HomeFragmentAdapter.x_Recy_Onclick {
+public class HomeFragment extends BaseFragment implements HomeContarct.View, HomeFragmentAdapter.x_Recy_Onclick {
 
     @Bind(R.id.home_xrecy)
     XRecyclerView homeXrecy;
+    @Bind(R.id.home_fragment)
+    LinearLayout homeFragment;
     private ArrayList<Object> home_data_object = new ArrayList<>();
     private ArrayList<HomeBean.DataBean> list = new ArrayList<HomeBean.DataBean>();
     private static int versionCode;
@@ -59,18 +64,23 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     private HomeFragmentAdapter adapter;
     private String versionsUrl;
     private AlertDialog alertDialog;
-    private  int total = 0;
+    private int total = 0;
     private ProgressBar pro;
 
     @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
+
     }
 
     @Override
     public void initView(View view) {
 
         pro = (ProgressBar) view.findViewById(R.id.fragment_home_progress);
+
+        if(!isConnected()){
+            pro.setVisibility(View.GONE);
+        }
 
         initData();
         getVersion();
@@ -89,7 +99,6 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
             @Override
             public void onLoadMore() {
-                Toast.makeText(getActivity(), "没有更多数据了", Toast.LENGTH_SHORT).show();
                 homeXrecy.refreshComplete();
             }
         });
@@ -115,7 +124,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     @Override
     public void setResult(HomeBean homeBean) {
 
-        if(homeBean!=null){
+        if (homeBean != null) {
             pro.setVisibility(View.GONE);
         }
 
@@ -138,17 +147,15 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         adapter.notifyDataSetChanged();
 
 
-
-
         adapter.setx_Recy_Onclick(this);
     }
 
     @Override
     public void setMessage(String msg) {
-        LogUtils.MyLog("TAG","走没");
+//        LogUtils.MyLog("TAG", "走没");
         ACache aCache = ACache.get(App.context);
         HomeBean homeBean = (HomeBean) aCache.getAsObject("HomeBean");
-        if(homeBean!=null){
+        if (homeBean != null) {
             list.add(homeBean.getData());
             adapter.notifyDataSetChanged();
         }
@@ -172,9 +179,9 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
         String url = bigImg.get(i - 1).getUrl();
 
-        Intent intent = new Intent(getActivity(),BroadcastWebActivity.class);
+        Intent intent = new Intent(getActivity(), BroadcastWebActivity.class);
 
-        intent.putExtra("name",url);
+        intent.putExtra("name", url);
 
         getActivity().startActivity(intent);
     }
@@ -188,9 +195,9 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         String image = home_data.getImage();
         String videoLength = home_data.getVideoLength();
 
-        HistoryUtils.getInstance(getActivity()).instert(title,image,videoLength);
+        HistoryUtils.getInstance(getActivity()).instert(title, image, videoLength);
 
-        thisTovideo(title,image,videoLength,pid);
+        thisTovideo(title, image, videoLength, pid);
     }
 
     @Override
@@ -199,10 +206,10 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         String pid = itemsBean.getPid();
         String title = itemsBean.getTitle();
 
-        Intent intent = new Intent(getActivity(),BroadcastSpActivity.class);
+        Intent intent = new Intent(getActivity(), BroadcastSpActivity.class);
 
-        intent.putExtra("id",pid);
-        intent.putExtra("title",title);
+        intent.putExtra("id", pid);
+        intent.putExtra("title", title);
 
         //HistoryUtils.getInstance(getActivity()).instert();
 
@@ -216,10 +223,10 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         String pid = second_itemsBean.getPid();
         String title = second_itemsBean.getTitle();
 
-        Intent intent = new Intent(getActivity(),BroadcastSpActivity.class);
+        Intent intent = new Intent(getActivity(), BroadcastSpActivity.class);
 
-        intent.putExtra("id",pid);
-        intent.putExtra("title",title);
+        intent.putExtra("id", pid);
+        intent.putExtra("title", title);
 
 
         getActivity().startActivity(intent);
@@ -237,9 +244,9 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
         String title = look_down_text.getTitle();
 
-        HistoryUtils.getInstance(getActivity()).instert(title,image,videoLength);
+        HistoryUtils.getInstance(getActivity()).instert(title, image, videoLength);
 
-       thisTovideo(title,image,videoLength,pid);
+        thisTovideo(title, image, videoLength, pid);
     }
 
     @Override
@@ -259,10 +266,10 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     @Override
     public void get_special_planning_Click(View v, HomeBean.DataBean.InteractiveBean.InteractiveoneBean interactiveoneBean) {
-                //get_special_planning_Click
-        Intent intent = new Intent(getActivity(),BroadcastWebActivity.class);
+        //get_special_planning_Click
+        Intent intent = new Intent(getActivity(), BroadcastWebActivity.class);
 
-        intent.putExtra("name",interactiveoneBean.getUrl());
+        intent.putExtra("name", interactiveoneBean.getUrl());
 
         getActivity().startActivity(intent);
     }
@@ -277,8 +284,8 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
         String pid = listBean.getPid();
 
-        Date date=new Date();
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
         String format = sdf.format(date);
 
@@ -288,23 +295,23 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
         String image = listBean.getImage();
 
-        HistoryUtils.getInstance(getActivity()).instert(title,image,videoLength);
+        HistoryUtils.getInstance(getActivity()).instert(title, image, videoLength);
 
-        thisTovideo(title,image,videoLength,pid);
+        thisTovideo(title, image, videoLength, pid);
 
     }
 
-    private void thisTovideo(String title , String image , String videoLength ,String pid){
+    private void thisTovideo(String title, String image, String videoLength, String pid) {
 
         Intent intent = new Intent(getActivity(), BroadcastSpActivity.class);
 
-        intent.putExtra("title",title);
+        intent.putExtra("title", title);
 
-        intent.putExtra("image",image);
+        intent.putExtra("image", image);
 
-        intent.putExtra("duration",videoLength);
+        intent.putExtra("duration", videoLength);
 
-        intent.putExtra("id",pid);
+        intent.putExtra("id", pid);
 
         getActivity().startActivity(intent);
 
@@ -354,7 +361,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
 
     }
 
-  //提示更新
+    //提示更新
     private void showDialogUpdate() {
         // 这里的属性可以一直设置，因为每次设置后返回的是一个builder对象
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -386,7 +393,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
     }
 
 
-//     下载新版本程序
+    //     下载新版本程序
     private void loadNewVersionProgress() {
         final String uri = versionsUrl;
         final ProgressDialog pd;    //进度条对话框
@@ -422,7 +429,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);
             //获取到文件的大小
-            pd.setMax(conn.getContentLength()/100);
+            pd.setMax(conn.getContentLength() / 100);
             InputStream is = conn.getInputStream();
             long time = System.currentTimeMillis();//当前时间的毫秒数
             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), time + "updata.apk");
@@ -437,7 +444,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
                 fos.write(buffer, 0, len);
                 total += len;
                 //获取当前下载量
-                pd.setProgress(total/100);
+                pd.setProgress(total / 100);
             }
             fos.close();
             bis.close();
@@ -448,7 +455,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         }
     }
 
-   //安装Apk
+    //安装Apk
     protected void installApk(File file) {
         Intent intent = new Intent();
         //执行动作
@@ -464,6 +471,7 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         MobclickAgent.onResume(getActivity());
         MobclickAgent.onPageStart("HomeFragment");//统计时长
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -471,4 +479,24 @@ public class HomeFragment extends BaseFragment implements HomeContarct.View ,Hom
         MobclickAgent.onPageStart("HomeFragment");
     }
 
+    public boolean isConnected() {
+        // 获取手机所有连接管理对象（包括对wi-fi,net等连接的管理）
+        try {
+            ConnectivityManager connectivity = (ConnectivityManager) getActivity()
+                    .getSystemService(getActivity().CONNECTIVITY_SERVICE);
+            if (connectivity != null) {
+                // 获取网络连接管理的对象
+                NetworkInfo info = connectivity.getActiveNetworkInfo();
+
+                if (info != null && info.isConnected()) {
+                    // 判断当前网络是否已经连接
+                    if (info.getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
 }
