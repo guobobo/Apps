@@ -1,11 +1,9 @@
 package com.example.iu.myapplication.module.pandaculture;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.androidkun.PullToRefreshRecyclerView;
@@ -21,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -40,6 +37,7 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
     private List<CultureBean.ListBean> list22 = new ArrayList<>();
     private XRecyclerView xRecyclerView;
     private CultureAdapter cultureAdapter;
+    private ProgressBar culture_bar;
 
 
     @Override
@@ -49,6 +47,7 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
 
     @Override
     public void initView(View view) {
+        culture_bar = (ProgressBar) view.findViewById(R.id.culture_bar);
         xRecyclerView = (XRecyclerView) view.findViewById(R.id.culture_xrecy);
         cultureAdapter = new CultureAdapter(list11,list22,getActivity());
 
@@ -101,6 +100,10 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
     public void setResult(CultureBean cultureBean) {
 
 
+        if(cultureBean != null) {
+            culture_bar.setVisibility(View.GONE);
+        }
+
         list1 = cultureBean.getBigImg();
         list11.clear();
         list11.addAll(list1);
@@ -116,11 +119,6 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
-    }
 
 
     @Override
@@ -130,13 +128,6 @@ public class CultureFragment extends BaseFragment implements CultureContarct.Vie
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 
     @OnClick(R.id.culture_xrecy)
     public void onViewClicked() {

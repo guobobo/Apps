@@ -3,10 +3,11 @@ package com.example.iu.myapplication.module.pandabroadcast;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.R;
+import com.example.iu.myapplication.app.App;
 import com.example.iu.myapplication.base.BaseFragment;
 import com.example.iu.myapplication.customize.HistoryUtils;
 import com.example.iu.myapplication.model.entity.BroadCastBean;
@@ -34,6 +35,7 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
     private List<BroadCastBean.DataBean.BigImgBean> list22 = new ArrayList<>();
     private List<BroadCastListBean.ListBean> list11 = new ArrayList<>();
     private BroadcastAdapter broadcastAdapter;
+    private ProgressBar broadcast_bar;
 
     @Override
     public int getLayoutId() {
@@ -42,6 +44,7 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
 
     @Override
     public void initView(View view) {
+        broadcast_bar = (ProgressBar) view.findViewById(R.id.broadcast_bar);
         xRecyclerView = (XRecyclerView) view.findViewById(R.id.broadcast_xrecy);
         broadcastAdapter = new BroadcastAdapter(list22,list11,getActivity());
 
@@ -99,10 +102,17 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContarct
 
     @Override
     public void setListResult(BroadCastListBean broadCastListBean) {
+
+
+        if(broadCastListBean != null) {
+            broadcast_bar.setVisibility(View.GONE);
+        }
+
 //        Log.e("TAG","++++++++++"+broadCastListBean.getList().get(0).getTitle());
         list1 = broadCastListBean.getList();
         list11.clear();
         list11.addAll(list1);
+
 
     }
 
